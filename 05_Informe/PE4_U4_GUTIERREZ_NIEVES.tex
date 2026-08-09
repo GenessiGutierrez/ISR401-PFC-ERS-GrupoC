@@ -389,6 +389,402 @@ La trazabilidad en proyectos ágiles enfrenta un desafío estructural: la natura
 
 Frente a la IR tradicional (documento ERS único, validado en un hito formal, línea base rígida), la IR ágil distribuye la validación en ciclos cortos e iterativos: el criterio de aceptación reemplaza a la revisión formal exhaustiva, y el backlog reemplaza a la matriz de trazabilidad estática \cite{hoyxu2023}. Esto no elimina la necesidad de trazabilidad ni de control de cambios como demuestra el propio desarrollo del presente trabajo, al exigir una matriz de trazabilidad y un CCB simulado sobre un ERS documental sino que reubica dónde y cuándo ocurre esa disciplina: en el enfoque documental ocurre de forma centralizada y previa al desarrollo (inspección Fagan, CCB); en el enfoque ágil ocurre de forma distribuida y continua (refinamiento, DoR/DoD, pruebas BDD) \cite{hoyxu2023}. Esta comparación se desarrolla con mayor detalle, en forma de tabla de seis dimensiones, en la Sección 10 del informe.
 
+\newpage
+
+\section{Inspección Fagan}
+
+\subsection{Roles y alcance}
+
+\subsubsection{Composición del equipo y adaptación de los roles}
+
+El equipo responsable de esta práctica lo integran dos personas. Fagan define
+cuatro roles moderador, lector e inspectores 1 y 2 y la literatura recomienda
+que los ocupen cuatro personas distintas, porque la independencia entre roles
+es el mecanismo que evita que la inspección degenere en una revisión
+informal. Con dos integrantes esa asignación uno a uno no es posible, de modo
+que se adoptó explícitamente una distribución de dos roles por integrante, y
+se declara aquí como limitación del diseño de la inspección en lugar de
+presentarla como una configuración canónica.
+
+Se tomaron tres medidas para preservar el efecto de los roles pese a la
+acumulación:
+
+\begin{enumerate}
+	\item Separación temporal entre el rol de inspector y el de moderador o
+	lector. La función de inspector se ejerció íntegramente en la fase de
+	preparación individual, por escrito y sin contacto entre las
+	integrantes; las funciones de moderadora y lector se ejercieron
+	únicamente durante la reunión. Ninguna integrante ejerció los dos roles
+	simultáneamente.
+	
+	\item Perspectivas de lectura disjuntas. Cada integrante recibió un
+	bloque distinto de las seis propiedades de calidad de la norma
+	ISO/IEC/IEEE~29148:2018, de modo que la preparación individual siguió
+	siendo independiente, aunque los roles se acumularan.
+	
+	\item Registro previo con marca temporal. Los dos checklists del
+	Anexo~A se firmaron y se subieron al repositorio antes de la reunión, lo
+	que impide que un hallazgo se atribuya retroactivamente.
+\end{enumerate}
+
+Una segunda limitación debe declararse con la misma franqueza: el ERS
+inspeccionado fue elaborado por el equipo del PFC, del que ambas integrantes
+forman parte, de manera que la independencia total entre autor e inspector no
+es alcanzable en este contexto académico. La independencia es parcial:
+dentro del equipo del PFC, ambas ocuparon el rol de verificador y no el de
+redacción principal del documento.
+
+\subsubsection{Asignación de roles y perspectivas}
+
+\begin{table}[h!]
+	\centering
+	\caption{Asignación de roles y perspectiva de lectura de cada integrante.}
+	\label{tab:asignacion-roles}
+	\begin{tabular}{
+			>{\raggedright\arraybackslash}p{4.3cm}
+			>{\raggedright\arraybackslash}p{3cm}
+			>{\raggedright\arraybackslash}p{6.6cm}
+		}
+		\toprule
+		\textbf{Integrante} & \textbf{Roles asumidos} & \textbf{Perspectiva asignada en la preparación individual} \\
+		\midrule
+		Gutiérrez Ortega Génesis Adriana & Moderadora e Inspectora~1 &
+		Consistencia documental y consistencia entre requisitos: conteos
+		declarados, referencias cruzadas, identificadores, coherencia de
+		versión, conflictos entre pares de requisitos, precondiciones y
+		coherencia de prioridades MoSCoW. \\
+		\addlinespace
+		Nieves Sánchez Jimmy Samuel & Lector e Inspector~2 &
+		Ambigüedad, verificabilidad, completitud y factibilidad:
+		cuantificación de umbrales, criterios de verificación circulares o
+		inejecutables, obligaciones legales no implementadas y viabilidad
+		dentro del cronograma del PFC. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+La asignación por perspectivas, en lugar de repartir páginas, responde a la
+técnica de lectura por perspectivas: cada inspectora recorre el material
+buscando un grupo determinado de propiedades, lo que aumenta la cobertura de
+las seis dimensiones y reduce el solapamiento entre hallazgos. Con solo dos
+inspectoras esta decisión es todavía más determinante que con cuatro, porque
+es lo único que impide que ambas encuentren los mismos defectos evidentes y
+dejen sin cubrir propiedades enteras.
+
+\subsubsection{Alcance y material inspeccionado}
+
+El material sometido a inspección fue el documento Entrega~3 (2A) —
+ERS/SRS Completa de MundiPets, versión~3.0 con fecha 29 de julio de 2026, de
+146 páginas y 59 elementos especificados: 25 requisitos funcionales, 16 no
+funcionales, 9 restricciones de diseño y 9 requisitos legales.
+
+No se inspeccionó el documento completo. Con dos inspectoras y una única
+sesión, cubrir 146 páginas habría producido una revisión superficial
+disfrazada de inspección. Se delimitó por tanto un alcance de 52 páginas
+efectivas, seleccionando las secciones donde se concentra la especificación
+de requisitos y su trazabilidad.
+
+\begin{table}[h!]
+	\centering
+	\caption{Alcance de la inspección y páginas efectivas por bloque.}
+	\label{tab:alcance-inspeccion}
+	\begin{tabular}{p{1cm} p{7cm} p{1.8cm} p{2cm}}
+		\toprule
+		\textbf{Bloque} & \textbf{Secciones del ERS incluidas} & \textbf{Páginas} & \textbf{Perspectiva} \\
+		\midrule
+		B1 & \S1.5 Visión general y \S2 Descripción general: alcance,
+		glosario, stakeholders y entorno operativo & 12 & Gutiérrez \\
+		B2 & \S3.1 a \S3.3 Interfaces externas, requisitos funcionales y
+		requisitos no funcionales & 26 & Ambas \\
+		B3 & \S3.4 a \S3.6 Requisitos legales, restricciones de diseño e
+		historias de usuario & 8 & Nieves \\
+		B4 & \S5.5 Matriz de trazabilidad, Apéndice~D y Apéndice~H
+		(checklist de autocontrol) & 6 & Gutiérrez \\
+		\midrule
+		\multicolumn{2}{l}{Total de páginas efectivas inspeccionadas} & \textbf{52} & \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+Quedaron fuera de alcance, y se declara explícitamente para que la métrica de
+densidad no se interprete de forma incorrecta: el modelado UML (\S4), el
+producto mínimo viable (\S6), el componente empírico (\S7) y las figuras y
+mockups de los apéndices.
+
+\subsection{Preparación individual}
+
+La inspectora Gutiérrez completó de forma individual su copia del checklist
+del Anexo~A desde la perspectiva de consistencia, con una dedicación
+aproximada de 4~horas. La revisión fue finalizada y el documento fue firmado
+y fechado el 8 de agosto de 2026. Posteriormente, una vez consolidado en
+formato PDF, el archivo
+\texttt{AnexoA\_\allowbreak Gutierrez\_\allowbreak consistencia.pdf} fue
+incorporado al repositorio en
+\texttt{02\_\allowbreak Inspeccion/\allowbreak AnexoA\_\allowbreak checklists/}
+durante la madrugada del 9 de agosto de 2026, a las 02:36:58
+(UTC$-$05:00), mediante el commit \texttt{99c4b07}. La diferencia entre la
+fecha de firma y la fecha del commit responde a dos hitos distintos: la
+primera acredita la culminación de la preparación individual y la segunda
+registra de manera auditable el momento en que el artefacto fue incorporado
+al control de versiones.
+
+El resultado fue de 16 defectos reportados, de los cuales 13 se acreditaron
+como únicos en la consolidación (D-01 a D-13) y 3 resultaron hallazgos de
+frontera que Nieves también había detectado. El mínimo exigido por la
+rúbrica es de 6 defectos por inspector.
+
+\begin{verbatim}
+	99c4b07 2026-08-09 02:36:58 -0500 GenessiGutierrez
+	docs(inspeccion): v1.0 - agregar Anexo A rol Moderadora-Inspector1 (Gutiérrez)
+\end{verbatim}
+
+El mensaje de este commit incluye la etiqueta \texttt{v1.0}, que por
+convención del equipo se reserva para archivos del ERS y no para la carpeta
+de inspección. Se declara aquí como un desliz de redacción del commit y no
+como una versión real del artefacto: el checklist del Anexo~A no está
+versionado de forma independiente al ERS, y el commit no se reescribió para
+no alterar el hash citado como evidencia de la marca temporal.
+
+% --- PENDIENTE (Nieves): preparación individual de Nieves ---
+% Resultado, dedicación, commit b37f323, defectos reportados/únicos.
+
+% --- PENDIENTE (Nieves): 4.2.1 Compilación final del Anexo A ---
+
+% --- PENDIENTE (Nieves): 4.2.2 Hallazgos de frontera entre perspectivas ---
+
+% --- PENDIENTE (Nieves): 4.2.3 Cobertura de las seis propiedades ---
+
+\subsection{Acta de la reunión de inspección}
+
+La reunión se celebró el 9 de agosto de 2026 por videoconferencia, dentro
+del límite de 90 minutos establecido. El lector parafraseó cada requisito
+con sus propias palabras, sin leerlo de forma literal; la moderadora
+contrastó cada paráfrasis con su checklist de preparación y registró las
+desviaciones. Al terminar cada bloque se intercambiaron los hallazgos
+escritos y se marcaron los duplicados.
+
+Se aplicó la regla de Fagan de no proponer ni discutir soluciones durante la
+sesión: la inspección detecta defectos, no los corrige. Cada vez que la
+deliberación derivó hacia la corrección, la moderadora la interrumpió,
+registró el hallazgo y difirió la solución a la fase de retrabajo.
+
+\begin{table}[h!]
+	\centering
+	\caption{Contenido del acta de la reunión de inspección.}
+	\label{tab:acta-reunion}
+	\begin{tabular}{p{4cm} p{9.5cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Contenido} \\
+		\midrule
+		Fecha y modalidad & 9 de agosto de 2026 · Videoconferencia \\
+		Material inspeccionado & ERS/SRS Completa de MundiPets v3.0.
+		Bloques B1 a B4. Total: 52 páginas efectivas \\
+		Moderadora e Inspectora~1 & Gutiérrez Ortega Génesis Adriana \\
+		Lector e Inspector~2 & Nieves Sánchez Jimmy Samuel \\
+		Defectos reportados en la preparación & 33 en total: Gutiérrez~16 y
+		Nieves~17 \\
+		Defectos únicos consolidados & 27 (D-01 a D-27) \\
+		Duplicados descartados & 6 hallazgos de frontera entre perspectivas \\
+		Distribución por severidad & 5 críticos, 13 mayores y 9 menores \\
+		Hallazgos nuevos en la sesión & Ninguno \\
+		Limitación registrada & Tasa de lectura de 34,7 páginas por hora,
+		superior a la que la literatura considera óptima. La mayor parte de
+		la detección se produjo en la preparación individual y no en la
+		reunión \\
+		Acción diferida & Verificar que cada evidencia EV-01 a EV-22 citada
+		en los requisitos existe en el catálogo del Apéndice~B.1.
+		Responsable: Gutiérrez \\
+		Decisión de salida & Documento no aceptado en su versión actual.
+		Retrabajo del 100\,\% de los defectos críticos y mayores (18 de 27).
+		Los cinco críticos se elevan al Comité de Control de Cambios como
+		candidatos a RFC \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+El acta firmada por ambas integrantes constituye el documento
+\texttt{Acta\_Inspeccion\_Fagan.pdf}, versionado en \texttt{02\_Inspeccion/}.
+
+\subsection{Registro de defectos}
+
+% --- PENDIENTE (Nieves): 4.4 Registro de defectos (Anexo B) ---
+% Consolidación de los 27 defectos únicos, campos exigidos por la rúbrica.
+
+\subsubsection{Criterios de severidad aplicados}
+
+% --- PENDIENTE (Nieves) ---
+
+\subsubsection{Defectos críticos detectados}
+
+% --- PENDIENTE (Nieves): Tabla de los 5 defectos críticos ---
+
+\subsubsection{Resumen del registro}
+
+% --- PENDIENTE (Nieves): Tabla resumen del registro consolidado ---
+
+\subsection{Métricas e interpretación}
+
+Se calcularon las cinco métricas que la literatura considera mínimas para
+una inspección formal. Cada una se acompaña de su interpretación, porque una
+métrica sin lectura no sirve para decidir nada. Los cálculos y las gráficas
+se versionan en \texttt{02\_Inspeccion/metricas.xlsx}.
+
+\subsubsection{Densidad de defectos}
+
+La densidad se obtiene dividiendo el número de defectos únicos entre las
+páginas efectivas inspeccionadas:
+
+\begin{equation}
+	\rho = \frac{27}{52} = 0{,}52 \ \text{defectos por página}
+\end{equation}
+
+\textbf{Interpretación.} Una densidad de 0,52 defectos por página sobre un
+documento que su propio Apéndice~H declaraba conforme indica que el
+checklist de autocontrol no funcionó como compuerta de calidad: detecta la
+presencia de los artefactos exigidos, pero no su coherencia interna, y de
+hecho el propio checklist resultó desactualizado (defecto D-03). Conviene
+señalar que la densidad está calculada sobre el alcance inspeccionado y no
+sobre el documento completo: extrapolarla a las 146 páginas sería
+incorrecto, porque el alcance se eligió deliberadamente sobre las secciones
+de mayor concentración de requisitos.
+
+\subsubsection{Distribución por tipo de defecto}
+
+\begin{table}[h!]
+	\centering
+	\caption{Distribución de los 27 defectos por propiedad de calidad de la
+		ISO/IEC/IEEE~29148:2018.}
+	\label{tab:distribucion-tipo}
+	\begin{tabular}{l c c}
+		\toprule
+		\textbf{Propiedad} & \textbf{Defectos} & \textbf{Porcentaje} \\
+		\midrule
+		Consistencia     & 12 & 44,4\,\% \\
+		Ambigüedad       & 4  & 14,8\,\% \\
+		Completitud      & 4  & 14,8\,\% \\
+		Verificabilidad  & 3  & 11,1\,\% \\
+		Trazabilidad     & 2  & 7,4\,\%  \\
+		Factibilidad     & 2  & 7,4\,\%  \\
+		\midrule
+		Total            & 27 & 100\,\%  \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\textbf{Interpretación.} El 44\,\% de los defectos son de consistencia, muy
+por encima de cualquier otra propiedad. El patrón no es aleatorio: el ERS
+creció por acumulación entre las entregas 1A, 1B y 2A, y las secciones
+escritas en momentos distintos dejaron de concordar entre sí en cifras
+declaradas, roles y prioridades MoSCoW. La acción correctiva no es redactar
+mejor, sino introducir una verificación de coherencia cruzada antes de
+cerrar cada entrega.
+
+\subsubsection{Distribución por severidad}
+
+\begin{table}[h!]
+	\centering
+	\caption{Distribución de los defectos por severidad.}
+	\label{tab:distribucion-severidad}
+	\begin{tabular}{l c c}
+		\toprule
+		\textbf{Severidad} & \textbf{Defectos} & \textbf{Porcentaje} \\
+		\midrule
+		Crítico & 5  & 18,5\,\% \\
+		Mayor   & 13 & 48,1\,\% \\
+		Menor   & 9  & 33,3\,\% \\
+		\midrule
+		Críticos y mayores (retrabajo obligatorio) & 18 & 66,7\,\% \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\textbf{Interpretación.} 18 de los 27 defectos son de corrección
+obligatoria. Que los cinco críticos se concentren en conflictos entre pares
+de requisitos y en obligaciones legales no implementadas, y no en errores de
+redacción, confirma que el problema del ERS~v3.0 no era de forma sino de
+coherencia entre partes.
+
+\subsubsection{Tasa de detección por inspector}
+
+\begin{table}[h!]
+	\centering
+	\caption{Tasa de detección y precisión por inspectora.}
+	\label{tab:tasa-deteccion}
+	\begin{tabular}{
+			>{\raggedright\arraybackslash}p{4.3cm}
+			c c c c
+		}
+		\toprule
+		\textbf{Inspectora} & \textbf{Reportados} & \textbf{Únicos} & \textbf{Tasa de detección} & \textbf{Precisión} \\
+		\midrule
+		Nieves Sánchez Jimmy Samuel & 17 & 14 & 51,9\,\% & 82,4\,\% \\
+		Gutiérrez Ortega Génesis Adriana & 16 & 13 & 48,1\,\% & 81,3\,\% \\
+		\addlinespace
+		\midrule
+		Total & 33 & 27 & 100\,\% & 81,8\,\% \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\textbf{Interpretación.} El reparto de la detección es prácticamente
+simétrico, lo que indica que la asignación de perspectivas distribuyó la
+carga de forma equilibrada y que ninguna de las dos mitades del checklist
+quedó infra-inspeccionada. La precisión, entendida como la proporción de
+hallazgos que sobrevivieron a la consolidación, es equivalente en ambas: los
+6 duplicados descartados corresponden en su totalidad a defectos de la
+frontera entre perspectivas, es decir, casos que son a la vez de
+consistencia y de ambigüedad o de completitud. Con cuatro inspectores esa
+frontera se habría cubierto con más redundancia; con dos, el riesgo real no
+es el duplicado sino el hueco, y por eso la asignación de perspectivas se
+hizo exhaustiva sobre las seis propiedades y no sobre una selección de
+ellas.
+
+\subsubsection{Esfuerzo en horas-persona}
+
+\begin{table}[h!]
+	\centering
+	\caption{Esfuerzo de la inspección por fase.}
+	\label{tab:esfuerzo-fase}
+	\begin{tabular}{p{5.5cm} p{2.3cm} c c}
+		\toprule
+		\textbf{Fase} & \textbf{Duración} & \textbf{Personas} & \textbf{Horas-persona} \\
+		\midrule
+		Planificación y visión general & 15 min & 2 & 0,5 \\
+		Preparación individual & 4,0~h cada una & 2 & 8,0 \\
+		Reunión de inspección & 90 min & 2 & 3,0 \\
+		Consolidación del Anexo~B y cálculo de métricas & 1,5~h cada una & 2 & 3,0 \\
+		Retrabajo (corrección de 22 defectos) & 4,5~h & 1 & 4,5 \\
+		Seguimiento y verificación de cierre & 30 min & 2 & 1,0 \\
+		\midrule
+		\multicolumn{3}{l}{Total} & \textbf{20,0} \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{equation}
+	E = \frac{27}{20{,}0} = 1{,}35 \ \text{defectos por hora-persona}
+\end{equation}
+
+\textbf{Interpretación.} Cada defecto costó aproximadamente 0,74
+horas-persona detectarlo y corregirlo. La preparación individual concentra
+el 40\,\% del esfuerzo y aporta la totalidad de los hallazgos, mientras que
+la reunión consume el 15\,\% y su función es consolidar y descartar
+duplicados. La lectura para futuras inspecciones es directa: si hubiera que
+recortar tiempo, el recorte debe hacerse en la reunión y nunca en la
+preparación. La eficiencia obtenida es superior a la que cabría esperar de
+una inspección con cuatro roles independientes, pero eso no indica un
+proceso mejor: indica que con dos personas hay menos horas invertidas en
+redundancia y, por tanto, menos garantía de que no queden defectos sin
+detectar.
+
+\begin{verbatim}
+	b37f323 2026-08-09 02:58:18 -0500 Nieves Jimmy
+	docs(inspeccion): agregar Anexo A del Lector-Inspector 2 (Nieves)
+	
+	99c4b07 2026-08-09 02:36:58 -0500 GenessiGutierrez
+	docs(inspeccion): v1.0 - agregar Anexo A rol Moderadora-Inspector1 (Gutiérrez)
+\end{verbatim}
+
 \section{Correcciones aplicadas}
 
 \section{Gestión del cambio y CCB}
