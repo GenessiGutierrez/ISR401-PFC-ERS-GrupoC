@@ -390,7 +390,6 @@ La trazabilidad en proyectos ágiles enfrenta un desafío estructural: la natura
 Frente a la IR tradicional (documento ERS único, validado en un hito formal, línea base rígida), la IR ágil distribuye la validación en ciclos cortos e iterativos: el criterio de aceptación reemplaza a la revisión formal exhaustiva, y el backlog reemplaza a la matriz de trazabilidad estática \cite{hoyxu2023}. Esto no elimina la necesidad de trazabilidad ni de control de cambios como demuestra el propio desarrollo del presente trabajo, al exigir una matriz de trazabilidad y un CCB simulado sobre un ERS documental sino que reubica dónde y cuándo ocurre esa disciplina: en el enfoque documental ocurre de forma centralizada y previa al desarrollo (inspección Fagan, CCB); en el enfoque ágil ocurre de forma distribuida y continua (refinamiento, DoR/DoD, pruebas BDD) \cite{hoyxu2023}. Esta comparación se desarrolla con mayor detalle, en forma de tabla de seis dimensiones, en la Sección 10 del informe.
 
 \newpage
-
 \section{Inspección Fagan}
 
 \subsection{Roles y alcance}
@@ -545,14 +544,162 @@ como una versión real del artefacto: el checklist del Anexo~A no está
 versionado de forma independiente al ERS, y el commit no se reescribió para
 no alterar el hash citado como evidencia de la marca temporal.
 
-% --- PENDIENTE (Nieves): preparación individual de Nieves ---
-% Resultado, dedicación, commit b37f323, defectos reportados/únicos.
+El inspector Nieves completó de manera individual el checklist del
+Anexo~A desde la perspectiva de ambigüedad, verificabilidad, completitud y
+factibilidad, con una dedicación aproximada de cuatro horas. La revisión y
+validación del contenido finalizaron el 8 de agosto de 2026, fecha en la que
+el documento fue firmado como constancia de culminación de la preparación
+individual. Posteriormente, una vez consolidado y convertido al formato PDF
+definitivo, el archivo fue incorporado al repositorio institucional durante
+la madrugada del 9 de agosto de 2026, a las 02:58:18 (UTC$-$05:00),
+mediante el commit \texttt{b37f323}, con el mensaje \texttt{docs(inspeccion):
+	agregar Anexo A del Lector-Inspector 2 (Nieves)}. Esta diferencia de fecha no
+representa una elaboración posterior del checklist, sino únicamente el
+momento técnico en que el artefacto previamente terminado y firmado fue
+versionado en Git. En consecuencia, la fecha de firma documenta la
+culminación de la revisión individual, mientras que la marca temporal del
+commit documenta de forma independiente y auditable su incorporación al
+control de versiones. Siempre que dicho commit sea anterior a la reunión
+formal de inspección, se mantiene la evidencia de que la preparación
+individual precedió a la sesión.
 
-% --- PENDIENTE (Nieves): 4.2.1 Compilación final del Anexo A ---
+El resultado fue de 17 defectos reportados, de los cuales 14 se acreditaron
+como únicos en la consolidación (D-14 a D-27) y 3 resultaron hallazgos de
+frontera que Gutiérrez también había detectado. El mínimo exigido por la
+rúbrica es de 6 defectos por inspector.
 
-% --- PENDIENTE (Nieves): 4.2.2 Hallazgos de frontera entre perspectivas ---
+\subsubsection{Compilación final del Anexo A}
 
-% --- PENDIENTE (Nieves): 4.2.3 Cobertura de las seis propiedades ---
+Las dos copias del checklist se elaboraron de forma independiente y sin
+contacto entre las inspectoras. Su compilación y contraste solo puede
+realizarse una vez celebrada la reunión, puesto que antes de ella ninguna
+inspectora conocía los hallazgos de la otra. Esa compilación constituye el
+documento \texttt{AnexoA\_\allowbreak Compilacion\_\allowbreak final.pdf} y
+verifica tres condiciones: que ambas copias están firmadas y fechadas con
+anterioridad a la reunión, que la marca temporal de los commits es anterior
+a la fecha del acta, y que cada defecto reportado tiene correspondencia en
+el Anexo~B o figura entre los duplicados descartados.
+
+\begin{table}[h!]
+	\centering
+	\caption{Recuento consolidado de la preparación individual.}
+	\label{tab:recuento-preparacion}
+	\begin{tabular}{
+			>{\raggedright\arraybackslash}p{4.3cm}
+			c c c
+			>{\raggedright\arraybackslash}p{4cm}
+		}
+		\toprule
+		\textbf{Inspectora} & \textbf{Reportados} & \textbf{Únicos} & \textbf{Duplicados} & \textbf{Perspectiva} \\
+		\midrule
+		Gutiérrez Ortega Génesis A. & 16 & 13 & 3 & Consistencia \\
+		Nieves Sánchez Jimmy S. & 17 & 14 & 3 & Ambigüedad, verificabilidad,
+		completitud y factibilidad \\
+		\midrule
+		Total & 33 & 27 & 6 & \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\subsubsection{Hallazgos de frontera entre perspectivas}
+
+Seis defectos fueron detectados por ambas inspectoras por caminos distintos.
+No se contabilizan dos veces: se acreditan a la inspectora cuya perspectiva
+asignada corresponde al tipo con el que el defecto quedó finalmente
+clasificado en el Anexo~B. Su existencia demuestra que las dos perspectivas
+se solapan en la frontera y explica la precisión del 81,8\,\% obtenida en la
+consolidación.
+
+\begin{table}[h!]
+	\centering
+	\caption{Los seis hallazgos de frontera y su acreditación.}
+	\label{tab:hallazgos-frontera}
+	\begin{tabular}{
+			c
+			>{\raggedright\arraybackslash}p{7.5cm}
+			>{\raggedright\arraybackslash}p{2.3cm}
+			>{\raggedright\arraybackslash}p{1.8cm}
+		}
+		\toprule
+		\textbf{ID} & \textbf{Cómo lo detectó cada inspectora} & \textbf{Tipo final} & \textbf{Acreditado a} \\
+		\midrule
+		D-07 & Gutiérrez: RF-25 y RNF-16 no pueden satisfacerse a la vez.
+		Nieves: la obligación de minimización de RNF-16 no está
+		implementada por RF-25. & Consistencia & Gutiérrez \\
+		\addlinespace
+		D-11 & Gutiérrez: RD-02 y la Tabla~5 declaran modelos de roles
+		distintos. Nieves: tres clases de usuario y el rol administrador
+		quedan sin RF asociado. & Consistencia & Gutiérrez \\
+		\addlinespace
+		D-12 & Gutiérrez: RF-05 contradice el principio de minimización de
+		RL-05. Nieves: RF-05 pide un dato sin justificar su necesidad. &
+		Consistencia & Gutiérrez \\
+		\addlinespace
+		D-15 & Nieves: criterios establecidos nunca definidos y criterio de
+		verificación circular. Gutiérrez: RF-17 y RNF-07 no concuerdan en
+		qué se verifica. & Ambigüedad & Nieves \\
+		\addlinespace
+		D-23 & Nieves: los RL carecen de criterio de verificación.
+		Gutiérrez: los RL no siguen la misma plantilla de ocho atributos que
+		RF, RNF y RD. & Completitud & Nieves \\
+		\addlinespace
+		D-26 & Nieves: la exclusión de RNF del MVP es parcial. Gutiérrez: la
+		lista declarada no concuerda con la real. & Completitud & Nieves \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\subsubsection{Cobertura de las seis propiedades}
+
+La compilación verificó que ninguna de las seis propiedades de calidad de la
+ISO/IEC/IEEE~29148:2018 quedó sin examinar pese a trabajar con solo dos
+inspectoras.
+
+\begin{table}[h!]
+	\centering
+	\caption{Cobertura cruzada de las seis propiedades.}
+	\label{tab:cobertura-propiedades}
+	\begin{tabular}{
+			>{\raggedright\arraybackslash}p{2.3cm}
+			>{\raggedright\arraybackslash}p{2cm}
+			>{\raggedright\arraybackslash}p{2.8cm}
+			>{\raggedright\arraybackslash}p{6.5cm}
+		}
+		\toprule
+		\textbf{Propiedad} & \textbf{Perspectiva titular} & \textbf{Defectos detectados} & \textbf{Confirmación desde la otra perspectiva} \\
+		\midrule
+		Ambigüedad & Nieves & D-15, D-16, D-17, D-18 & Gutiérrez detectó
+		D-13 desde su lectura de consistencia \\
+		\addlinespace
+		Completitud & Nieves & D-21, D-22, D-23, D-26, D-27 & Gutiérrez
+		confirmó D-23 y D-26 desde la coherencia de plantilla \\
+		\addlinespace
+		Consistencia & Gutiérrez & D-01 a D-04, D-06 a D-12 & Nieves
+		confirmó D-07, D-11 y D-12 desde las obligaciones no implementadas \\
+		\addlinespace
+		Verificabilidad & Nieves & D-14, D-19, D-20 & Sin hallazgos
+		adicionales desde la consistencia \\
+		\addlinespace
+		Trazabilidad & Gutiérrez & D-05 & Ambas confirmaron que los
+		requisitos declaran su fuente \\
+		\addlinespace
+		Factibilidad & Nieves & D-24, D-25 & Sin hallazgos adicionales
+		desde la consistencia \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{verbatim}
+	b37f323 2026-08-09 02:58:18 -0500 Nieves Jimmy
+	docs(inspeccion): agregar Anexo A del Lector-Inspector 2 (Nieves)
+	
+	99c4b07 2026-08-09 02:36:58 -0500 GenessiGutierrez
+	docs(inspeccion): v1.0 - agregar Anexo A rol Moderadora-Inspector1 (Gutiérrez)
+	
+	7c5e4c1 2026-08-08 21:54:15 -0500 GenessiGutierrez
+	chore(repo): estructura de carpetas, gitignore y README con instrucciones
+	de compilación
+\end{verbatim}
 
 \subsection{Acta de la reunión de inspección}
 
@@ -596,8 +743,9 @@ registró el hallazgo y difirió la solución a la fase de retrabajo.
 		Responsable: Gutiérrez \\
 		Decisión de salida & Documento no aceptado en su versión actual.
 		Retrabajo del 100\,\% de los defectos críticos y mayores (18 de 27).
-		Los cinco críticos se elevan al Comité de Control de Cambios como
-		candidatos a RFC \\
+		Cuatro de los cinco críticos se elevan al Comité de Control de
+		Cambios como candidatos a RFC; el quinto, D-11, se resuelve por
+		retrabajo directo \\
 		\bottomrule
 	\end{tabular}
 \end{table}
@@ -607,20 +755,115 @@ El acta firmada por ambas integrantes constituye el documento
 
 \subsection{Registro de defectos}
 
-% --- PENDIENTE (Nieves): 4.4 Registro de defectos (Anexo B) ---
-% Consolidación de los 27 defectos únicos, campos exigidos por la rúbrica.
+La consolidación de los 33 hallazgos reportados produjo 27 defectos únicos,
+de los cuales 5 son críticos, 13 mayores y 9 menores. El registro completo,
+con los campos exigidos por la rúbrica —número, sección, descripción, tipo,
+severidad y corrección—, constituye el Anexo~B y se versiona como
+\texttt{02\_\allowbreak Inspeccion/\allowbreak AnexoB\_\allowbreak
+	registro\_\allowbreak defectos.xlsx}.
+
+El registro supera holgadamente los mínimos establecidos: se exigen 15
+defectos únicos con al menos 3 críticos o mayores, y se obtuvieron 27
+defectos únicos con 18 críticos o mayores.
 
 \subsubsection{Criterios de severidad aplicados}
 
-% --- PENDIENTE (Nieves) ---
+\begin{itemize}
+	\item \textbf{Crítico.} El defecto hace que dos requisitos no puedan
+	satisfacerse simultáneamente, o que una obligación declarada no esté
+	implementada por ningún requisito.
+	
+	\item \textbf{Mayor.} El defecto impide verificar el requisito o
+	introduce una incoherencia que se propaga a otros artefactos del
+	proyecto.
+	
+	\item \textbf{Menor.} El defecto afecta a la calidad documental sin
+	comprometer la construcción del sistema.
+\end{itemize}
 
 \subsubsection{Defectos críticos detectados}
 
-% --- PENDIENTE (Nieves): Tabla de los 5 defectos críticos ---
+Los cinco defectos críticos determinan tanto el retrabajo obligatorio como
+las tres solicitudes de cambio que se tramitan en la sección~6. Cuatro de
+ellos (D-07, D-18, D-21 y D-22) se elevan como candidatos a RFC; el quinto,
+D-11, se resuelve por retrabajo directo del autor.
+
+\begin{table}[h!]
+	\centering
+	\caption{Defectos críticos detectados en la inspección.}
+	\label{tab:defectos-criticos}
+	\begin{tabular}{
+			c
+			>{\raggedright\arraybackslash}p{2.3cm}
+			>{\raggedright\arraybackslash}p{7.3cm}
+			>{\raggedright\arraybackslash}p{2.2cm}
+		}
+		\toprule
+		\textbf{N.\textordmasculine{}} & \textbf{Requisitos} & \textbf{Descripción del defecto} & \textbf{Tipo} \\
+		\midrule
+		D-07 & RF-25, RNF-16, RL-05 & RF-25 exige publicar el aviso de
+		mascota extraviada visible públicamente, incluyendo datos de
+		contacto y microchip, mientras que RNF-16, obligación legal directa
+		de minimización, exige que contacto y ubicación estén ocultos por
+		defecto en el 100\,\% de los perfiles. Ambos requisitos no pueden
+		satisfacerse a la vez sin una excepción declarada. & Consistencia \\
+		\addlinespace
+		D-11 & RD-02, Tabla~5 & RD-02 define control de acceso para tres
+		roles mientras que la Tabla~5 define cinco clases de usuario que no
+		incluyen administrador. El rol administrador es un actor huérfano y
+		tres clases de usuario quedan fuera del modelo de roles. &
+		Consistencia y completitud \\
+		\addlinespace
+		D-18 & RF-06, RNF-06, RNF-13 & La descripción de RF-06 afirma que el
+		sistema evaluará la compatibilidad, pero su salida declarada es solo
+		información comparativa. RNF-06, que exige una coincidencia mínima
+		del 85\,\% con el criterio veterinario, y RNF-13, que exige explicar
+		el resultado, presuponen un veredicto que RF-06 no declara producir.
+		& Consistencia y ambigüedad \\
+		\addlinespace
+		D-21 & RL-02, RL-03 & Las obligaciones legales fijan un plazo de 15
+		días para acceso y rectificación, pero los requisitos a los que se
+		mapean (RF-02, RF-03, RF-11 y RF-14) no contienen ese plazo ni
+		criterio que lo verifique. La obligación queda declarada pero no
+		implementada. & Trazabilidad y completitud \\
+		\addlinespace
+		D-22 & RL-01, RF-01 & RL-01 se mapea a RF-01 con la glosa registro
+		con aceptación de términos, pero RF-01 no menciona el consentimiento
+		en ningún atributo, y ningún requisito cubre la revocación del
+		consentimiento que el propio RL-01 declara obligatoria. &
+		Completitud \\
+		\bottomrule
+	\end{tabular}
+\end{table}
 
 \subsubsection{Resumen del registro}
 
-% --- PENDIENTE (Nieves): Tabla resumen del registro consolidado ---
+\begin{table}[h!]
+	\centering
+	\caption{Resumen del registro consolidado de defectos.}
+	\label{tab:resumen-registro}
+	\begin{tabular}{
+			>{\raggedright\arraybackslash}p{5cm}
+			c c c
+		}
+		\toprule
+		\textbf{Indicador} & \textbf{Valor} & \textbf{Mínimo exigido} & \textbf{Estado} \\
+		\midrule
+		Defectos únicos consolidados & 27 & 15 & Cumple \\
+		De ellos críticos o mayores & 18 & 3 & Cumple \\
+		Defectos corregidos en el retrabajo & 17 & --- & --- \\
+		Defectos elevados al CCB mediante RFC & 5 & --- & --- \\
+		Defectos menores diferidos con justificación & 5 & --- & --- \\
+		Críticos y mayores resueltos & 18 de 18 & 100\,\% & Cumple \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+De los 27 defectos, 22 quedaron resueltos: 17 mediante retrabajo directo del
+autor y 5 a través de las solicitudes de cambio RFC-01, RFC-02 y RFC-03,
+cuya tramitación se documenta en la sección~6. Los 5 defectos menores
+restantes se difirieron con justificación escrita, que se detalla en la
+sección~5.
 
 \subsection{Métricas e interpretación}
 
@@ -784,6 +1027,8 @@ detectar.
 	99c4b07 2026-08-09 02:36:58 -0500 GenessiGutierrez
 	docs(inspeccion): v1.0 - agregar Anexo A rol Moderadora-Inspector1 (Gutiérrez)
 \end{verbatim}
+
+\newpage
 
 \section{Correcciones aplicadas}
 
