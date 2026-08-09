@@ -11,4 +11,5 @@
 *.fdb_latexmk
 *.lof
 *.lot
+*.lol
 *.synctex*
