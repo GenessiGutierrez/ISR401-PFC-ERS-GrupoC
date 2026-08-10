@@ -1,4 +1,4 @@
-# ISR401-PFC-ERS-[NombreEquipo]
+# ISR401-PFC-ERS-GrupoC
 
 Repositorio de la Práctica Experimental 4 (PE4), Unidad IV, de la asignatura
 Ingeniería de Requerimientos (ISR-401), Carrera de Software, Universidad Técnica
@@ -6,25 +6,25 @@ Estatal de Quevedo. Período 2026–2027 PPA.
 
 **Docente:** Ing. Gleiston Cicerón Guerrero Ulloa, PhD
 
-**URL del repositorio:** https://github.com/USUARIO/ISR401-PFC-ERS-NOMBREEQUIPO
+**URL del repositorio:** <https://github.com/GenessiGutierrez/ISR401-PFC-ERS-GrupoC>
 
 ---
 
 ## Sistema
 
-**[Nombre del sistema del PFC]** — [una o dos líneas describiendo qué hace el sistema,
-a qué dominio pertenece y quiénes son sus usuarios principales].
+**MundiPets** — Sistema de software orientado a la gestión de mascotas y sus
+dueños, sobre el cual el equipo aplica técnicas formales de Ingeniería de
+Requerimientos: inspección Fagan, gestión del cambio mediante CCB,
+trazabilidad de requisitos y control de línea base con Git.
 
 ---
 
 ## Integrantes y roles
 
-| Integrante | Rol en la inspección Fagan | Rol en el CCB |
-|---|---|---|
-| [Apellidos Nombres] | Moderador | Presidente |
-| [Apellidos Nombres] | Lector | Analista |
-| [Apellidos Nombres] | Inspector 1 | Representante del cliente |
-| [Apellidos Nombres] | Inspector 2 | Desarrollador |
+| Integrante                          | Rol en la inspección Fagan | Rol en el CCB              |
+| ------------------------------------ | --------------------------- | --------------------------- |
+| Génesis Adriana Gutiérrez Ortega     | Moderadora + Inspectora 1   | Presidenta + Analista        |
+| Jimmy Samuel Nieves Sánchez          | Lectora + Inspectora 2      | Representante del cliente + Desarrolladora |
 
 ---
 
@@ -35,7 +35,7 @@ a qué dominio pertenece y quiénes son sus usuarios principales].
 02_Inspeccion/    AnexoA_checklists/, AnexoB_registro_defectos.xlsx, metricas.xlsx
 03_CCB/           RFC-01.pdf, RFC-02.pdf, RFC-03.pdf, Acta_CCB.pdf
 04_Trazabilidad/  matriz_trazabilidad.xlsx, backlog_export.csv, capturas/
-05_Informe/       PE4_U4_APELLIDO1_APELLIDO2.tex, referencias.bib, figuras/
+05_Informe/       PE4_U4_GUTIERREZ_NIEVES.tex, referencias.bib, figuras/
 06_Evidencias/    capturas_git/, fotos_sesion/, declaracion_IA.pdf
 CHANGELOG.md      Historial de versiones del ERS por RFC aprobada
 ```
@@ -44,7 +44,7 @@ CHANGELOG.md      Historial de versiones del ERS por RFC aprobada
 
 ## Compilación del informe
 
-**Archivo principal:** `05_Informe/PE4_U4_APELLIDO1_APELLIDO2.tex`
+**Archivo principal:** `05_Informe/PE4_U4_GUTIERREZ_NIEVES.tex`
 
 ### Dependencias
 
@@ -53,45 +53,43 @@ CHANGELOG.md      Historial de versiones del ERS por RFC aprobada
 - Procesador bibliográfico: `biber` (backend de biblatex, estilo IEEE)
 - Clase: `IEEEtran`
 - Paquetes: `babel` (spanish), `csquotes`, `biblatex`, `booktabs`, `tabularx`,
-  `array`, `multirow`, `longtable`, `graphicx`, `float`, `xcolor`, `geometry`,
-  `fancyhdr`, `parskip`, `enumitem`, `caption`, `titlesec`, `amssymb`,
-  `mdframed`, `hyperref`
+`array`, `multirow`, `longtable`, `graphicx`, `float`, `xcolor`, `geometry`,
+`fancyhdr`, `parskip`, `enumitem`, `caption`, `titlesec`, `amssymb`,
+`mdframed`, `hyperref`
 - Archivos requeridos en `05_Informe/`: `referencias.bib` y la carpeta `figuras/`
 
 ### Orden de comandos
 
-```bash
+```
 cd 05_Informe
-pdflatex PE4_U4_APELLIDO1_APELLIDO2.tex
-biber    PE4_U4_APELLIDO1_APELLIDO2
-pdflatex PE4_U4_APELLIDO1_APELLIDO2.tex
-pdflatex PE4_U4_APELLIDO1_APELLIDO2.tex
+pdflatex PE4_U4_GUTIERREZ_NIEVES.tex
+biber    PE4_U4_GUTIERREZ_NIEVES
+pdflatex PE4_U4_GUTIERREZ_NIEVES.tex
+pdflatex PE4_U4_GUTIERREZ_NIEVES.tex
 ```
 
-**Salida:** `05_Informe/PE4_U4_APELLIDO1_APELLIDO2.pdf`
-
+**Salida:** `05_Informe/PE4_U4_GUTIERREZ_NIEVES.pdf`
 > `biber` recibe el nombre del archivo **sin extensión**. Las dos pasadas finales
 > de `pdflatex` son necesarias para resolver las referencias cruzadas y la
 > numeración de tablas y figuras.
 
 ### Compilación del ERS
 
-El mismo procedimiento aplica a `01_ERS/ERS_v1.1.tex`, que tiene su propio
-`referencias.bib` y su propia carpeta `figuras/`.
+El mismo procedimiento aplica a `01_ERS/ERS_v1.1.tex`, que tiene su propio `referencias.bib` y su propia carpeta `figuras/`.
 
 ---
 
 ## Línea base
 
-| Elemento | Valor |
-|---|---|
-| Versión vigente del ERS | v1.1 |
-| Tag de línea base | `baseline-v1.1` |
-| Aprobada por | CCB, sesión del [fecha] |
+| Elemento                | Valor                   |
+| ------------------------ | ------------------------ |
+| Versión vigente del ERS  | v1.1                     |
+| Tag de línea base        | `baseline-v1.1`          |
+| Aprobada por              | CCB, sesión del [fecha]  |
 
 Verificación del tag publicado:
 
-```bash
+```
 git tag -n
 git ls-remote --tags origin
 ```
