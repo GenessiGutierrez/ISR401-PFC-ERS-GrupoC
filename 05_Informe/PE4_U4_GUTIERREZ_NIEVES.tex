@@ -1438,15 +1438,257 @@ sobre el fichero fuente del ERS y la generación de
 \texttt{ERS\_MundiPets\_v1.1.pdf} en la carpeta \texttt{01\_ERS} del
 repositorio. Las cinco correcciones marcadas como RFC no pueden aplicarse
 hasta que el Comité de Control de Cambios las apruebe.
-	
+
 \newpage
+	
+% 06 Gestión del cambio y CCB — sección completa (6.1-6.3, desde el docx
+% actualizado)
+% Archivo \input-ready. Requiere \usepackage{longtable} en el preámbulo.
+% Correcciones aplicadas respecto al docx fuente:
+% 1) "Los cinco defectos críticos... se agruparon en tres RFC" -> de los 5
+%    defectos elevados a RFC, solo 4 son críticos (D-07, D-18, D-21, D-22);
+%    D-20 es Mayor. El quinto crítico, D-11, se resuelve por retrabajo
+%    directo (ver sección 4). Redacción corregida.
+% 2) "prioridad Could en v3.0" -> "v1.0", coherente con la renumeración de
+%    la sección 5 (v1.0 = archivo/tag actual, v1.1 = tras la corrección).
+% 3) Tablas de RFC-01/02/03 como longtable (no flotante), porque no caben
+%    en una sola página y como 'table' se apilarían al final del documento.
+% Nota: "Origen de las solicitudes de cambio" va en negrita sin numerar
+% (no es un comando de sección); los RFC empiezan a numerar desde 6.1.
 
 \section{Gestión del cambio y CCB}
-\subsection{RFC-01}
-\subsection{RFC-02}
-\subsection{RFC-03}
-\subsection{Acta del CCB}
-\subsection{Versión actualizada del ERS}
+
+\textbf{Origen de las solicitudes de cambio}
+
+Los cinco defectos elevados al Comité de Control de Cambios —cuatro
+críticos y uno mayor— se agruparon en tres solicitudes de cambio (RFC) de
+naturaleza distinta, conforme al proceso de cinco pasos descrito en el
+marco teórico (\S3.3). Las tres derivan de conflictos reales detectados
+sobre el propio ERS y no de supuestos: RFC-01 resuelve un conflicto de
+alcance frente a una obligación normativa (D-07), RFC-02 corrige la
+definición de un atributo de calidad y su verificabilidad (D-18 y D-20), y
+RFC-03 implementa una restricción legal declarada y no cubierta (D-21 y
+D-22).
+
+\begin{table}[h!]
+	\centering
+	\caption{Resumen de las tres solicitudes de cambio elevadas al CCB.}
+	\label{tab:resumen-rfc}
+	\begin{tabular}{
+			|c
+			|>{\raggedright\arraybackslash}p{3.3cm}
+			|>{\raggedright\arraybackslash}p{3.8cm}
+			|>{\raggedright\arraybackslash}p{2.7cm}
+			|>{\raggedright\arraybackslash}p{2.5cm}|
+		}
+		\hline
+		\textbf{ID} & \textbf{Naturaleza} & \textbf{Origen} & \textbf{Solicitante} & \textbf{Decisión} \\
+		\hline
+		RFC-01 & Alcance (nuevo requisito) & Defecto crítico D-07:
+		conflicto RF-25 / RNF-16 & Nieves (rep. del cliente) & Aprobado
+		con condiciones \\
+		\hline
+		RFC-02 & Calidad (modificación de RNF) & Defectos D-18 y D-20:
+		salida de RF-06 y verificabilidad de RNF-06 & Nieves
+		(desarrollador) & Aprobado \\
+		\hline
+		RFC-03 & Restricción normativa & Defectos críticos D-21 y D-22:
+		LOPDP no implementada & Gutiérrez (analista de requisitos) &
+		Aprobado \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsection{RFC-01 — Publicación de aviso de extravío con contacto mediado}
+
+\label{tab:rfc-01}
+\begin{longtable}{
+		|>{\raggedright\arraybackslash}p{3.8cm}
+		|>{\raggedright\arraybackslash}p{9.7cm}|
+	}
+	\caption{Formulario de solicitud de cambio RFC-01 — Publicación de
+		aviso de extravío con contacto mediado.} \\
+	\hline
+	\textbf{Identificador} & RFC-01 \\
+	\hline
+	\textbf{Fecha de solicitud} & 09/08/2026 \\
+	\hline
+	\textbf{Solicitante y rol} & Nieves Sánchez Jimmy Samuel —
+	Representante del cliente en el CCB \\
+	\hline
+	\textbf{Naturaleza del cambio} & Alcance: incorporación de un
+	requisito funcional nuevo \\
+	\hline
+	\textbf{Requisitos afectados} & RF-25 (modificado), RNF-16
+	(modificado), RF-26 (nuevo), RL-05 \\
+	\hline
+	\textbf{Descripción del cambio} & Sustituir la publicación abierta
+	de datos de contacto en el aviso de mascota extraviada por un canal
+	de contacto mediado por la plataforma. Se crea RF-26 «Contactar al
+	publicador de un aviso de extravío mediante canal mediado», que
+	expone un formulario de contacto sin revelar teléfono ni correo del
+	propietario, y se añade a RNF-16 una excepción declarada y acotada
+	para avisos de extravío activos. \\
+	\hline
+	\textbf{Justificación de negocio} & El aviso de extravío pierde su
+	utilidad si nadie puede contactar a quien lo publicó, pero publicar
+	el teléfono del propietario contradice el principio de
+	minimización que el propio ERS invoca en RL-05 y RNF-16 (LOPDP).
+	El canal mediado conserva el 100\,\% del valor funcional eliminando
+	la exposición del dato personal. \\
+	\hline
+	\textbf{Requisitos impactados según la matriz de trazabilidad} &
+	Filas TR-14, TR-15 y TR-17: RF-25 $\rightarrow$ CU-14
+	$\rightarrow$ AvisoExtravio $\rightarrow$ CP-14. El enlace hacia
+	adelante de RNF-16 alcanza además a RF-11 (privacidad) y RF-03
+	(consulta de perfil). Impacto indirecto confirmado sobre RF-07
+	(mensajería), que aporta el mecanismo de mediación. \\
+	\hline
+	\textbf{Artefactos impactados} & Casos de uso CU-14 (modificado),
+	CU-16 (nuevo). Clases nuevas AvisoExtravio y ContactoMediado;
+	modificación de ConfiguracionPrivacidad. Mockups de aviso y
+	formulario de contacto. Pruebas CP-14 modificado y CP-26 nuevo. \\
+	\hline
+	\textbf{Costo estimado} & 9 horas-persona (2~h especificación, 1~h
+	modelado UML, 4~h implementación en el MVP, 2~h pruebas) \\
+	\hline
+	\textbf{Riesgo} & Medio. El canal mediado depende de RF-07, con
+	prioridad Could en v1.0. Mitigación: RF-26 declara como
+	precondición la disponibilidad del módulo de mensajería. \\
+	\hline
+	\textbf{Recomendación técnica} & Aprobar, condicionando la
+	implementación a que RF-07 se reprioricé al menos a Should en la
+	misma versión. \\
+	\hline
+\end{longtable}
+
+\subsection{RFC-02 — Veredicto de compatibilidad y protocolo de verificación}
+
+\label{tab:rfc-02}
+\begin{longtable}{
+		|>{\raggedright\arraybackslash}p{3.8cm}
+		|>{\raggedright\arraybackslash}p{9.7cm}|
+	}
+	\caption{Formulario de solicitud de cambio RFC-02 — Veredicto de
+		compatibilidad y protocolo de verificación.} \\
+	\hline
+	\textbf{Identificador} & RFC-02 \\
+	\hline
+	\textbf{Fecha de solicitud} & 09/08/2026 \\
+	\hline
+	\textbf{Solicitante y rol} & Nieves Sánchez Jimmy Samuel —
+	Desarrollador en el CCB \\
+	\hline
+	\textbf{Naturaleza del cambio} & Calidad: modificación de
+	requisitos no funcionales y de la salida declarada de un RF \\
+	\hline
+	\textbf{Requisitos afectados} & RF-06 (modificado), RNF-06
+	(modificado), RNF-13 (aclarado) \\
+	\hline
+	\textbf{Descripción del cambio} & (a) RF-06 declara como salida un
+	veredicto de compatibilidad en tres niveles —compatible,
+	compatible con reservas, no recomendado— acompañado de la
+	explicación exigida por RNF-13, en lugar de la ambigua
+	«información comparativa». (b) RNF-06 define el protocolo de
+	medición de su umbral del 85\,\%: 40 pares de mascotas evaluados
+	de forma independiente por 3 médicos veterinarios, referencia por
+	mayoría simple, exclusión y reporte de los casos sin mayoría. \\
+	\hline
+	\textbf{Justificación de negocio} & RNF-06 y RNF-13 son requisitos
+	Must que califican una salida que RF-06 no declaraba producir:
+	ninguno de los dos era verificable. Además, el umbral del 85\,\%
+	sin protocolo de medición es inauditable. \\
+	\hline
+	\textbf{Requisitos impactados según la matriz de trazabilidad} &
+	Filas TR-06, TR-07 y TR-08: RF-06 $\rightarrow$ CU-13
+	$\rightarrow$ MotorCompatibilidad $\rightarrow$ CP-06. El enlace
+	hacia atrás llega a EV-01 (entrevista veterinaria). Impacto
+	indirecto sobre RF-19 y RF-23. \\
+	\hline
+	\textbf{Artefactos impactados} & CU-13 (flujo alternativo nuevo).
+	Clase MotorCompatibilidad: nuevo tipo enumerado
+	NivelCompatibilidad. Pruebas CP-06 descompuesto en CP-06a/b/c. \\
+	\hline
+	\textbf{Costo estimado} & 12 horas-persona (3~h especificación,
+	2~h modelado, 3~h implementación, 4~h diseño y ejecución del
+	protocolo de medición) \\
+	\hline
+	\textbf{Riesgo} & Bajo en especificación, medio en verificación: el
+	protocolo exige 3 veterinarios para 40 pares; solo hay 2
+	colaboradores registrados. Mitigación: gestionar un tercero antes
+	de la fase de pruebas. \\
+	\hline
+	\textbf{Recomendación técnica} & Aprobar sin condiciones. El
+	cambio no amplía el alcance funcional, solo hace verificable lo
+	que ya estaba comprometido. \\
+	\hline
+\end{longtable}
+
+\subsection{RFC-03 — Consentimiento, revocación y plazos legales}
+
+\label{tab:rfc-03}
+\begin{longtable}{
+		|>{\raggedright\arraybackslash}p{3.8cm}
+		|>{\raggedright\arraybackslash}p{9.7cm}|
+	}
+	\caption{Formulario de solicitud de cambio RFC-03 — Consentimiento,
+		revocación y plazos legales.} \\
+	\hline
+	\textbf{Identificador} & RFC-03 \\
+	\hline
+	\textbf{Fecha de solicitud} & 09/08/2026 \\
+	\hline
+	\textbf{Solicitante y rol} & Gutiérrez Ortega Génesis Adriana —
+	Analista de requisitos en el CCB \\
+	\hline
+	\textbf{Naturaleza del cambio} & Restricción normativa:
+	incorporación de obligaciones legales no implementadas \\
+	\hline
+	\textbf{Requisitos afectados} & RF-01 (modificado), RF-27 (nuevo),
+	RF-02, RF-03, RF-11 y RF-14 (modificados), RL-01, RL-02 y RL-03
+	(criterio de verificación añadido) \\
+	\hline
+	\textbf{Descripción del cambio} & (a) RF-01 incorpora el registro
+	del consentimiento informado con marca temporal y versión de los
+	términos aceptados. (b) Se crea RF-27 «Revocar el consentimiento
+	de tratamiento de datos», con efectos en cascada sobre
+	publicaciones activas, solicitudes en curso y datos de contacto.
+	(c) RF-02, RF-03, RF-11 y RF-14 incorporan el plazo máximo de 15
+	días para atender solicitudes de acceso y rectificación. \\
+	\hline
+	\textbf{Justificación de negocio} & La LOPDP establece el derecho
+	de acceso y rectificación con plazo y el derecho a revocar el
+	consentimiento, y el propio ERS declara esas obligaciones en
+	RL-01, RL-02 y RL-03. La inspección demostró (D-21, D-22) que
+	ninguna función del sistema las implementa. \\
+	\hline
+	\textbf{Requisitos impactados según la matriz de trazabilidad} &
+	Filas TR-01, TR-02, TR-03, TR-10 y TR-12. El recorrido hacia atrás
+	desde RL-01, RL-02 y RL-03 llega a la fuente normativa; el
+	recorrido hacia adelante desde RF-01 alcanza Usuario,
+	Consentimiento (nueva) y Publicacion. Impacto indirecto sobre
+	RD-06. \\
+	\hline
+	\textbf{Artefactos impactados} & CU-01 (modificado) y CU-15
+	(nuevo). Clase Consentimiento (nueva). Nuevo estado «despublicada
+	por revocación». Pruebas CP-01 (modificada) y CP-27 (nueva). \\
+	\hline
+	\textbf{Costo estimado} & 16 horas-persona (4~h especificación,
+	3~h modelado, 6~h implementación de la cascada de revocación, 3~h
+	pruebas) \\
+	\hline
+	\textbf{Riesgo} & Alto si no se implementa (incumplimiento
+	normativo). Medio en la implementación: la cascada toca varias
+	entidades. Mitigación: revocación como estado reversible de 30
+	días antes del borrado definitivo. \\
+	\hline
+	\textbf{Recomendación técnica} & Aprobar con prioridad Must y
+	planificar antes que cualquier requisito Should pendiente. \\
+	\hline
+\end{longtable}
+
+
+\newpage
 
 \section{Trazabilidad en herramienta CASE}
 \subsection{Estructura del tablero}
