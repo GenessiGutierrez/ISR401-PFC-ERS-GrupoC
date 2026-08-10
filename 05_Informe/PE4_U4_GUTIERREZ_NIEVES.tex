@@ -1968,12 +1968,176 @@ La revisión final muestra que algunos requisitos dejaron de estar completamente
 Antes de cerrar la entrega debe efectuarse una última comparación entre Jira, el ERS v1.1, la matriz de trazabilidad y el archivo \texttt{backlog\_export.csv}. La versión 1.1, los identificadores de casos de uso, las prioridades y los enlaces deben coincidir en todos los artefactos antes de crear el tag \texttt{baseline-v1.1}.
 
 \newpage
+
 \section{Línea base con Git}
+\label{sec:baseline-git}
+
 \subsection{Repositorio y estructura de carpetas}
-\subsection{Historial de commits}
+\label{subsec:8.1}
+
+El equipo estableció el control de configuración del ERS de MundiPets en el repositorio
+público de GitHub \texttt{ISR401-PFC-ERS-GrupoC}, disponible en
+\url{https://github.com/GenessiGutierrez/ISR401-PFC-ERS-GrupoC}. La estructura de
+carpetas sigue la organización convenida en la guía de la práctica, separando los
+artefactos por tipo:
+
+\begin{itemize}
+	\item \texttt{README.md} — documentación del sistema (MundiPets), los integrantes
+	del equipo con sus roles, la estructura del repositorio y las instrucciones
+	de compilación del informe en \LaTeX{}.
+	\item \texttt{CHANGELOG.md} — historial de cambios del ERS por versión.
+	\item \texttt{01\_ERS/} — versiones del ERS (\texttt{ERS\_v1.0.pdf},
+	\texttt{ERS\_v1.1.pdf}) y sus fuentes \texttt{.tex}.
+	\item \texttt{02\_Inspeccion/} — checklists individuales (Anexo A), registro de
+	defectos (Anexo B) y métricas de la inspección Fagan.
+	\item \texttt{03\_CCB/} — formularios RFC-01, RFC-02 y RFC-03, y el Acta del CCB.
+	\item \texttt{04\_Trazabilidad/} — matriz de trazabilidad, exportación CSV del
+	backlog y capturas del tablero.
+	\item \texttt{05\_Informe/} — fuente \LaTeX{} del informe, bibliografía y figuras.
+	\item \texttt{06\_Evidencias/} — capturas del historial de Git, fotos de la sesión
+	y la declaración de uso de IA.
+\end{itemize}
+
+El \texttt{README.md} documenta además el procedimiento de compilación reproducible
+del informe: distribución \LaTeX{} requerida (TeX Live o MiKTeX), motor
+\texttt{pdflatex}, procesador bibliográfico \texttt{biber} y el orden exacto de
+comandos necesario para generar el PDF final a partir del archivo principal
+\texttt{PE4\_U4\_GUTIERREZ\_NIEVES.tex}.
+
+\subsection{Historial de commits: mínimo 8, semánticos y con autoría distribuida}
+\label{subsec:8.2}
+
+El repositorio registra 51 commits sobre la rama \texttt{main}, superando
+ampliamente el mínimo de 8 commits distribuidos que exige la rúbrica (criterio C5).
+Los mensajes siguen una convención semántica de la forma \texttt{tipo(ámbito):
+	descripción}, por ejemplo \texttt{docs(ers): v1.1 - aplicar modificaciones aprobadas
+	por CCB} o \texttt{docs(ccb): agregar RFC-01 - aviso de extravío con contacto
+	mediado}, lo que permite identificar de forma inmediata qué artefacto del informe
+originó cada cambio.
+
+La autoría está distribuida entre los dos integrantes del equipo, cada uno con su
+identidad configurada mediante \texttt{git config user.name} y \texttt{user.email}
+institucional:
+
+\begin{table}[H]
+	\centering
+	\caption{Distribución de commits por autor (\texttt{git shortlog -sne --all}).}
+	\label{tab:autoria-commits}
+	\begin{tabular}{lc}
+		\toprule
+		\textbf{Autor} & \textbf{Commits} \\
+		\midrule
+		Génesis Adriana Gutiérrez Ortega & 39 \\
+		Jimmy Samuel Nieves Sánchez & 13 \\
+		\midrule
+		\textbf{Total} & \textbf{52} \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\noindent\textit{Nota:} los commits de Génesis Gutiérrez aparecen bajo dos variantes
+del mismo nombre de usuario (\texttt{GenessiGutierrez} y \texttt{Genesis Gutierrez})
+debido a un cambio de configuración local entre sesiones de trabajo, ambas asociadas
+al mismo correo institucional \texttt{ggutierrezo@uteq.edu.ec}. La identidad quedó
+unificada a partir de la corrección aplicada durante el desarrollo de esta práctica.
+
+El historial evidencia commits independientes por sección del informe y por
+integrante (por ejemplo, \texttt{docs(informe): agregar sección 5 Correcciones
+	aplicadas (Nieves)} y \texttt{docs(inspeccion): agregar sección 4 Inspección Fagan
+	- parte 1 (Gutiérrez)}), lo que descarta que el trabajo se haya concentrado en un
+único commit de carga masiva, condición explícitamente penalizada por la rúbrica.
+
 \subsection{Tag anotado de baseline}
+\label{subsec:8.3}
+
+Una vez integrados en el ERS los cambios aprobados por el Comité de Control de
+Cambios (Sección~\ref{sec:ccb}) y actualizado el \texttt{CHANGELOG.md}, se creó el
+tag anotado de línea base y se publicó en el repositorio remoto:
+
+\begin{verbatim}
+	git tag -a baseline-v1.1 -m "Baseline aprobada por CCB"
+	git push origin baseline-v1.1
+\end{verbatim}
+
+La Figura~\ref{fig:git-tag-push} muestra la ejecución de ambos comandos, la
+verificación local del mensaje del tag mediante \texttt{git tag -n} y la
+confirmación de su publicación en el remoto mediante \texttt{git ls-remote --tags
+	origin}, que devuelve el objeto \texttt{baseline-v1.1} con su hash correspondiente.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{Figuras/git_tag_push.jpeg}
+	\caption{Creación y publicación del tag anotado \texttt{baseline-v1.1}.}
+	\label{fig:git-tag-push}
+\end{figure}
+
+La publicación del tag se verificó además directamente en GitHub, en la sección
+\textit{Tags} del repositorio (Figura~\ref{fig:github-tags}), donde queda visible
+públicamente el tag \texttt{baseline-v1.1} asociado al commit \texttt{024e901}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{Figuras/github_tags.jpeg}
+	\caption{Tag \texttt{baseline-v1.1} publicado y visible en GitHub.}
+	\label{fig:github-tags}
+\end{figure}
+
+La versión 1.1 queda declarada de forma coherente en los cuatro artefactos que
+exige la gestión de configuración: la portada del ERS, su historial de revisiones,
+el \texttt{CHANGELOG.md} (Sección~\ref{subsec:8.4}) y este tag de Git, cerrando
+formalmente el defecto D-04 identificado durante la inspección Fagan.
+
 \subsection{CHANGELOG.md}
+\label{subsec:8.4}
+
+El archivo \texttt{CHANGELOG.md} documenta la versión 1.1 del ERS siguiendo el
+formato \texttt{[Versión] - [Fecha] / Añadido / Cambiado / Eliminado}, con una
+entrada por cada RFC aprobado en la sesión del CCB del 09/08/2026, además de las
+correcciones de retrabajo directo que también integran esta versión (D-01, D-03 y
+D-04). Entre los cambios registrados figuran:
+
+\begin{itemize}
+	\item \textbf{Añadido}: RF-26 (RFC-01, canal de contacto mediado para avisos de
+	extravío) y RF-27 (RFC-03, revocación del consentimiento informado con
+	estado reversible de 30 días).
+	\item \textbf{Cambiado}: RF-25 y RNF-16 (defecto D-07), RF-07 (repriorizado por
+	condición del CCB), RF-06 y RNF-06 (RFC-02, veredicto de compatibilidad en
+	tres niveles), RF-01 a RF-14 (RFC-03, plazos legales y consentimiento),
+	además de la corrección de la matriz de trazabilidad (D-01) y del checklist
+	de aceptación (D-03).
+	\item \textbf{Eliminado}: ninguno en esta versión.
+\end{itemize}
+
 \subsection{Capturas del historial}
+\label{subsec:8.5}
+
+Se documenta el historial completo de commits mediante
+\texttt{git log --oneline --graph --decorate} (Figura~\ref{fig:git-log-graph}), que
+permite visualizar tanto la secuencia cronológica de commits como los puntos de
+fusión (\textit{merge}) entre las ramas de trabajo de ambos integrantes, y confirma
+que el tag \texttt{baseline-v1.1} apunta al commit más reciente de la rama
+\texttt{main}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{Figuras/git_log_tag.jpeg}
+	\caption{Historial de commits con grafo de ramas (\texttt{git log --oneline
+			--graph --decorate}).}
+	\label{fig:git-log-graph}
+\end{figure}
+
+Complementariamente, la Figura~\ref{fig:git-shortlog} muestra la distribución de
+commits por autor mediante \texttt{git shortlog -sne --all}, evidencia directa de
+la autoría distribuida documentada en la Sección~\ref{subsec:8.2}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{Figuras/historialcommit.png}
+	\caption{Distribución de commits por autor (\texttt{git shortlog -sne --all}).}
+	\label{fig:git-shortlog}
+\end{figure}
+
+\newpage
 
 \section{Comparativa de herramientas CASE}
 
