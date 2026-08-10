@@ -1687,228 +1687,219 @@ D-22).
 	\hline
 \end{longtable}
 
-\subsection{Acta del CCB}
-
-El comité se constituyó con los cuatro roles que la práctica exige
-—presidenta, representante del cliente, analista y desarrollador—
-distribuidos entre las dos integrantes del equipo, a razón de dos roles
-por persona. Al igual que en la inspección Fagan, esta acumulación se
-declara como limitación y no como configuración canónica: con dos
-personas votando por partida doble, la deliberación no puede producir una
-mayoría independiente, por lo que se adoptó la regla de que cada rol debe
-emitir su argumento por escrito y desde la perspectiva de su rol antes de
-votar, y que un voto sin argumento registrado se considera nulo. El acta
-recoge los doce argumentos emitidos (cuatro por cada uno de RFC-01, RFC-02
-y RFC-03, dos por integrante).
-
-\begin{table}[h!]
-	\centering
-	\caption{Contenido del acta de la reunión del CCB.}
-	\label{tab:acta-ccb}
-	\begin{tabular}{
-			|>{\raggedright\arraybackslash}p{4cm}
-			|>{\raggedright\arraybackslash}p{9.5cm}|
-		}
-		\hline
-		\textbf{Fecha, hora y lugar} & 09/08/2026, 14:00 -- 15:10 ---
-		Videoconferencia \\
-		\hline
-		\textbf{Duración} & 70 minutos \\
-		\hline
-		\textbf{Presidenta y Analista de requisitos} & Gutiérrez Ortega
-		Génesis Adriana \\
-		\hline
-		\textbf{Representante del cliente y Desarrollador} & Nieves
-		Sánchez Jimmy Samuel \\
-		\hline
-		\textbf{Composición y quórum} & 4 roles ejercidos por 2 personas.
-		Quórum verificado: los cuatro roles presentes y con argumento
-		registrado. \\
-		\hline
-		\textbf{Regla de deliberación} & Cada rol argumenta por escrito
-		desde su perspectiva antes de votar. La presidenta no puede
-		invocar su rol de analista para reforzar una decisión ya tomada
-		como presidenta: los argumentos se redactaron y se registraron
-		antes de la votación de cada RFC. \\
-		\hline
-		\textbf{Agenda} & 1) Verificación del quórum y de la regla de
-		deliberación. 2) Presentación del informe de inspección (27
-		defectos, 5 críticos). 3) Deliberación y votación de RFC-01. 4)
-		Deliberación y votación de RFC-02. 5) Deliberación y votación de
-		RFC-03. 6) Fijación de la versión resultante y de la línea base.
-		7) Puntos diferidos. \\
-		\hline
-		\textbf{Limitación declarada} & Con dos personas, ningún RFC
-		puede ser rechazado por mayoría real de perspectivas
-		independientes. Se deja constancia de que las tres decisiones
-		fueron unánimes y de que, en un comité con cuatro personas
-		distintas, la condición impuesta a RFC-01 podría haber derivado
-		en un aplazamiento en lugar de una aprobación condicionada. \\
-		\hline
-	\end{tabular}
-\end{table}
-
-\subsubsection{Deliberación y votación por RFC}
-
-\begin{longtable}{
-		|c
-		|>{\raggedright\arraybackslash}p{2.8cm}
-		|>{\raggedright\arraybackslash}p{7cm}
-		|>{\raggedright\arraybackslash}p{2.3cm}|
-	}
-	\caption{Deliberación del CCB: argumento por rol y voto emitido.}
-	\label{tab:deliberacion-ccb} \\
-	\hline
-	\textbf{RFC} & \textbf{Rol (integrante)} & \textbf{Argumento expuesto
-		desde la perspectiva del rol} & \textbf{Voto} \\
-	\hline
-	\endfirsthead
-	\multicolumn{4}{l}{(continuación de la Tabla 2)} \\
-	\hline
-	\textbf{RFC} & \textbf{Rol (integrante)} & \textbf{Argumento expuesto
-		desde la perspectiva del rol} & \textbf{Voto} \\
-	\hline
-	\endhead
-	\hline
-	\endfoot
-	RFC-01 & Presidenta (Gutiérrez) & El conflicto entre RF-25 y RNF-16
-	es un defecto crítico y no puede quedar abierto antes de sellar la
-	línea base. El canal mediado es la única solución identificada que
-	no obliga a sacrificar ninguno de los dos requisitos. & A favor \\
-	\hline
-	& Analista de requisitos (Gutiérrez) & El análisis de impacto
-	muestra 3 filas de la matriz afectadas directamente y una
-	dependencia sobre RF-07, cuya prioridad es Could. Sin repriorizar
-	RF-07, RF-26 queda especificado pero no implementable. & A favor con
-	condición \\
-	\hline
-	& Rep. del cliente (Nieves) & El refugio necesita que un aviso de
-	extravío funcione en horas, no en días; el formulario mediado añade
-	fricción a la respuesta. Acepta el cambio solo si la respuesta
-	genera notificación inmediata al publicador. & A favor con
-	condición \\
-	\hline
-	& Desarrollador (Nieves) & 9 horas-persona son asumibles, pero
-	reutilizar el módulo de mensajería exige que ese módulo exista.
-	Confirma técnicamente la dependencia señalada por el analista. & A
-	favor con condición \\
-	\hline
-	RFC-02 & Presidenta (Gutiérrez) & Sin un veredicto declarado en
-	RF-06, los requisitos RNF-06 y RNF-13 —ambos Must— son
-	inverificables. El cambio no amplía el alcance, lo hace auditable. &
-	A favor \\
-	\hline
-	& Analista de requisitos (Gutiérrez) & El protocolo de 40 pares
-	evaluados por 3 veterinarios es el mínimo para que el umbral del
-	85\,\% signifique algo medible. Advierte que solo hay 2 veterinarios
-	colaboradores registrados en el catálogo de evidencias. & A favor \\
-	\hline
-	& Rep. del cliente (Nieves) & Los tres niveles son más útiles para
-	el usuario que un comparativo neutro, siempre que la plataforma no
-	se presente como autoridad veterinaria. Pide que el nivel «no
-	recomendado» incluya siempre la razón. & A favor \\
-	\hline
-	& Desarrollador (Nieves) & El tipo enumerado y los tres flujos son
-	triviales de implementar; el coste real está en el protocolo de
-	medición, no en el código. Sin la salida declarada, no había forma
-	de saber qué construir. & A favor \\
-	\hline
-	RFC-03 & Presidenta (Gutiérrez) & Es una obligación legal que el
-	propio ERS declara y que ningún requisito implementa. No hay margen
-	de discrecionalidad: rechazarla dejaría el sistema en
-	incumplimiento. & A favor \\
-	\hline
-	& Analista de requisitos (Gutiérrez) & La cascada de la revocación
-	alcanza a Publicacion y a los procesos de adopción en curso. Propone
-	un estado intermedio reversible de 30 días para atender la objeción
-	del representante del cliente. & A favor \\
-	\hline
-	& Rep. del cliente (Nieves) & Pregunta qué ocurre con las
-	adopciones en curso cuando un usuario revoca. Solicita que la
-	revocación no cancele procesos ya iniciados sin aviso previo a la
-	contraparte. & A favor con observación \\
-	\hline
-	& Desarrollador (Nieves) & 16 horas-persona es el mayor de los tres
-	cambios y toca varias entidades. Pide implementarlo primero, antes
-	de que crezca el volumen de datos de prueba y el borrado en cascada
-	se vuelva costoso. & A favor \\
-	\hline
-\end{longtable}
-
-\subsubsection{Decisiones, acciones y responsables}
-
-\begin{longtable}{
-		|c
-		|>{\raggedright\arraybackslash}p{3cm}
-		|>{\raggedright\arraybackslash}p{5.3cm}
-		|>{\raggedright\arraybackslash}p{2.3cm}
-		|>{\raggedright\arraybackslash}p{1.5cm}|
-	}
-	\caption{Decisiones del CCB con acciones, responsables y plazos.}
-	\label{tab:decisiones-ccb} \\
-	\hline
-	\textbf{RFC} & \textbf{Decisión} & \textbf{Justificación y acciones
-		acordadas} & \textbf{Responsable} & \textbf{Plazo} \\
-	\hline
-	\endfirsthead
-	\multicolumn{5}{l}{(continuación de la Tabla 3)} \\
-	\hline
-	\textbf{RFC} & \textbf{Decisión} & \textbf{Justificación y acciones
-		acordadas} & \textbf{Responsable} & \textbf{Plazo} \\
-	\hline
-	\endhead
-	\hline
-	\endfoot
-	RFC-01 & Aprobado con condiciones (4 votos a favor, 3
-	condicionados) & Se aprueba la creación de RF-26 y la excepción
-	acotada en RNF-16. Condición 1: RF-07 se reprioriza de Could a
-	Should en la misma versión. Condición 2: el formulario mediado debe
-	generar notificación inmediata al publicador. & Nieves (RF-26),
-	Gutiérrez (CU-14/CU-16) & Semana 14 \\
-	\hline
-	RFC-02 & Aprobado (4 votos a favor) & Se aprueban el veredicto de
-	tres niveles y el protocolo de medición. Acción adicional: gestionar
-	la participación de un tercer veterinario antes de la fase de
-	pruebas. & Nieves (RF-06), Gutiérrez (3er veterinario) & Semana 14 /
-	Unidad~V \\
-	\hline
-	RFC-03 & Aprobado (4 votos a favor, con 1 observación) & Obligación
-	normativa no negociable. Se incorpora la observación del
-	representante del cliente: la revocación pasa por un estado
-	reversible de 30 días y notifica a la contraparte. & Gutiérrez
-	(RF-27 y diagrama de estados) & Semana 14 \\
-	\hline
-	D-27 & Diferido & La reclasificación de requisitos a Won't have se
-	traslada a la primera sesión de la Unidad~V, por requerir revisión
-	completa del backlog. & Nieves & Unidad~V \\
-	\hline
-	D-12 & Diferido & Requiere consulta previa al refugio sobre la
-	necesidad de la fotografía del solicitante. & Nieves & Unidad~V \\
-	\hline
-\end{longtable}
-
-\subsubsection{Versión resultante y cierre}
-
-El comité acordó que, partiendo de la versión 1.0 del ERS de MundiPets, la
-implementación de las tres RFC aprobadas, junto con la corrección de los
-18 defectos críticos y mayores, da como resultado la versión 1.1 del ERS.
-Esta versión constituye la nueva línea base del proyecto y queda
-identificada mediante el tag anotado \texttt{baseline-v1.1}. El comité
-verificó que la versión 1.1 figure de manera coherente en la portada del
-ERS, en el historial de revisiones, en el \texttt{CHANGELOG.md} y en el
-tag de Git, con lo cual se da por cerrado el defecto D-04.
-
-El acta firmada por ambas integrantes constituye el documento
-\texttt{Acta\_CCB.pdf}, versionado en \texttt{03\_CCB/}.
 
 \newpage
 
+% Requiere en el preámbulo del documento maestro:
+% \usepackage[spanish]{babel}
+% \usepackage{longtable}
+% \usepackage{booktabs}
+% \usepackage{array}
+% \usepackage{geometry} % opcional, para ajustar márgenes con tablas anchas
+
 \section{Trazabilidad en herramienta CASE}
-\subsection{Estructura del tablero}
-\subsection{Campos personalizados}
+
+\subsection{Herramienta seleccionada y justificación}
+
+Se seleccionó Jira para gestionar la trazabilidad de los requisitos de MundiPets porque permite organizar el trabajo mediante una jerarquía de Epics, Historias, Tareas y Subtareas, incorporar campos personalizados y establecer relaciones tipadas entre actividades. En el espacio MUNDIPETS, con clave MP, cada requisito funcional del ERS se representó como una Historia y se relacionó con evidencias, casos de uso y casos de prueba.
+
+Jira se utilizó como complemento del ERS y no como sustituto del documento formal de especificación. El ERS conserva la definición de los requisitos, mientras que Jira facilita su gestión operativa, priorización y navegación entre artefactos relacionados. La matriz externa de trazabilidad complementa a Jira registrando también la clase o módulo de diseño cuando este no fue modelado como una actividad independiente dentro de la herramienta.
+
+\subsection{Estructura del backlog y campos personalizados}
+
+\subsubsection{Jerarquía de Epics e Historias}
+
+El backlog de MundiPets se estructuró mediante cinco Epics y veintisiete Historias, manteniendo una Historia por cada requisito funcional del ERS v1.1. La distribución se presenta en la Tabla~\ref{tab:epics}.
+
+\begin{table}[h]
+	\centering
+	\small
+	\begin{tabular}{|c|p{4.2cm}|p{6cm}|c|}
+		\hline
+		\textbf{Epic} & \textbf{Área funcional} & \textbf{Requisitos funcionales} & \textbf{Total} \\
+		\hline
+		E1 & Gestión de mascotas y perfiles & RF-01, RF-02, RF-03, RF-04, RF-13, RF-16, RF-21 & 7 \\
+		\hline
+		E2 & Procesos de adopción & RF-05, RF-15, RF-18, RF-20, RF-22 & 5 \\
+		\hline
+		E3 & Cruza responsable y salud animal & RF-06, RF-08, RF-09, RF-14, RF-19, RF-23, RF-24 & 7 \\
+		\hline
+		E4 & Privacidad, consentimiento y cumplimiento legal & RF-11, RF-12, RF-17, RF-27 & 4 \\
+		\hline
+		E5 & Comunicación, avisos y notificaciones & RF-07, RF-10, RF-25, RF-26 & 4 \\
+		\hline
+		\textbf{TOTAL} & & & \textbf{27} \\
+		\hline
+	\end{tabular}
+	\caption{Distribución de los requisitos funcionales por Epic en Jira.}
+	\label{tab:epics}
+\end{table}
+
+Además, siete Historias de mayor complejidad se descompusieron en diecisiete Subtareas: RF-01 (2), RF-06 (3), RF-11 (2), RF-17 (2), RF-18 (3), RF-26 (2) y RF-27 (3). Esta descomposición representa criterios de aceptación verificables sin convertir cada criterio en un nuevo requisito funcional.
+
+\subsubsection{Campos personalizados}
+
+Para las Historias se configuraron tres campos personalizados que permiten conservar atributos relevantes del requisito dentro de Jira.
+
+\begin{table}[h]
+	\centering
+	\small
+	\begin{tabular}{|p{3.2cm}|p{3cm}|p{7.5cm}|}
+		\hline
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Finalidad / valores} \\
+		\hline
+		Prioridad MoSCoW & Lista desplegable & Must have, Should have, Could have o Won't have. \\
+		\hline
+		Fuente del requisito & Texto corto & Identifica la evidencia, requisito legal o RFC que origina el requisito y materializa la trazabilidad hacia atrás. \\
+		\hline
+		Estado de verificación & Lista desplegable & Sin criterio, Criterio definido, Prueba especificada o Prueba ejecutada. \\
+		\hline
+	\end{tabular}
+	\caption{Campos personalizados configurados para las Historias.}
+	\label{tab:campos}
+\end{table}
+
 \subsection{Trazabilidad bidireccional}
-\subsection{Evidencia}
+
+La trazabilidad se configuró mediante enlaces tipados. El enlace \textit{is caused by} representa la trazabilidad hacia atrás y conecta la Historia con la evidencia, requisito legal o RFC que la originó. El enlace \textit{implements} representa la trazabilidad hacia adelante hacia el caso de uso, mientras que \textit{is tested by} relaciona el requisito con el caso de prueba definido para su verificación.
+
+Las clases y módulos no se registraron como issues independientes en Jira; por ello, su correspondencia se conserva en la matriz externa de trazabilidad. Esta decisión debe declararse de forma expresa para no presentar como enlace de Jira una relación que únicamente está documentada en la matriz.
+
+\begin{table}[h]
+	\centering
+	\small
+	\begin{tabular}{|p{2.8cm}|p{2.2cm}|p{8.5cm}|}
+		\hline
+		\textbf{Enlace o campo} & \textbf{Dirección} & \textbf{Relación representada} \\
+		\hline
+		is caused by & Hacia atrás & Historia $\rightarrow$ evidencia, requisito legal o RFC de origen \\
+		\hline
+		implements & Hacia adelante & Historia $\rightarrow$ caso de uso que realiza el requisito \\
+		\hline
+		is tested by & Hacia adelante & Historia $\rightarrow$ caso de prueba que verifica el requisito \\
+		\hline
+		Fuente del requisito & Hacia atrás & Atributo textual que conserva el origen en la exportación y facilita la auditoría \\
+		\hline
+		Clase / módulo en matriz & Hacia adelante & Relación de diseño mantenida fuera de Jira cuando no existe issue específico \\
+		\hline
+	\end{tabular}
+	\caption{Tipos de enlace y dirección de trazabilidad utilizados en Jira.}
+	\label{tab:enlaces}
+\end{table}
+
+Durante la configuración final se incorporaron artefactos que no estaban representados en la matriz inicial, entre ellos CP-17, CP-18, CU-20/CP-20, CP-21, CP-22 y CP-24. Estos cambios deben reflejarse también en el ERS v1.1 y en la matriz final antes de establecer la línea base.
+
+\subsection{Evidencias del tablero}
+
+% Pendiente: insertar capturas y leyendas de figuras (Epics, detalle de Historia, panel de estadísticas).
+
 \subsection{Matriz de trazabilidad}
+
+La matriz de trazabilidad se actualizó con base en la configuración final de Jira, el ERS v1.1 y los artefactos creados durante la práctica. La Tabla~\ref{tab:matriz} relaciona la fuente representativa, el requisito funcional, el caso de uso, la clase o módulo, el caso de prueba y la prioridad MoSCoW. Los elementos marcados como pendientes se mantienen visibles porque todavía requieren una acción antes de cerrar la línea base.
+
+\begin{longtable}{|c|p{2.6cm}|p{2.9cm}|p{2.9cm}|p{2.6cm}|p{1.8cm}|c|}
+	\caption{Matriz de trazabilidad bidireccional actualizada del proyecto MundiPets.} \label{tab:matriz} \\
+	\hline
+	\textbf{ID} & \textbf{Fuente / stakeholder} & \textbf{Requisito funcional (Jira)} & \textbf{Caso de uso (Jira)} & \textbf{Clase / módulo} & \textbf{Prueba} & \textbf{MoSCoW} \\
+	\hline
+	\endfirsthead
+	
+	\hline
+	\textbf{ID} & \textbf{Fuente / stakeholder} & \textbf{Requisito funcional (Jira)} & \textbf{Caso de uso (Jira)} & \textbf{Clase / módulo} & \textbf{Prueba} & \textbf{MoSCoW} \\
+	\hline
+	\endhead
+	
+	\hline
+	\endfoot
+	
+	\hline
+	\endlastfoot
+	
+	TR-01 & MP-55 / EV-02 - Propietario & MP-10 / RF-01 Registrar mascota & MP-56 / CU-01 Registrar mascota & Mascota, Usuario, Consentimiento & MP-57 / CP-01 & Must \\
+	\hline
+	TR-02 & MP-58 / EV-01 - Veterinario & MP-11 / RF-02 Gestionar historial médico & MP-59 / CU-02 Historial médico y antecedentes & HistorialMedico & MP-60 / CP-02 & Must \\
+	\hline
+	TR-03 & MP-61 / EV-05 - Adoptante & MP-12 / RF-03 Consultar perfil completo & MP-62 / CU-10 Consultar perfil médico & PerfilMascota, ConfiguracionPrivacidad & MP-63 / CP-03 & Must \\
+	\hline
+	TR-04 & MP-66 / EV-07 - Usuarios potenciales & MP-13 / RF-04 Buscar y filtrar mascotas & MP-64 / CU-11 Buscar mascota disponible & BuscadorMascotas & MP-65 / CP-04 & Should \\
+	\hline
+	TR-05 & MP-58 / EV-01 - Veterinario* & MP-14 / RF-05 Gestionar solicitudes de adopción & MP-68 / CU-04 Publicar mascota en adopción & SolicitudAdopcion & MP-69 / CP-05 & Must \\
+	\hline
+	TR-06 & MP-58 / EV-01 - Veterinario & MP-15 / RF-06 Evaluar compatibilidad para cruza & MP-70 / CU-13 Evaluar compatibilidad & MotorCompatibilidad, NivelCompatibilidad & MP-71/72/73 / CP-06a-b-c & Must \\
+	\hline
+	TR-07 & MP-55 / EV-02 - Propietario & MP-16 / RF-07 Sistema de mensajería & MP-74 / CU-08 Gestionar comunicación & Mensajeria & PENDIENTE CP-07 & Should* \\
+	\hline
+	TR-08 & MP-75 / EV-03 - Interesado en cruza & MP-17 / RF-08 Gestionar solicitudes de cruza & MP-76 / CU-05 Publicar mascota para cruza & SolicitudCruza & MP-77 / CP-08 & Must \\
+	\hline
+	TR-09 & MP-75 / EV-03 - Interesado en cruza & MP-18 / RF-09 Validar información médica & MP-78 / CU-09 Validar información médica & ValidacionVeterinaria & MP-79 / CP-09 & Must \\
+	\hline
+	TR-10 & MP-80 / EV-04 - Evidencia vinculada & MP-19 / RF-10 Recordatorios preventivos & MP-81 / CU-17 Recordatorios preventivos* & Recordatorio, Notificador & MP-82 / CP-10 & Should \\
+	\hline
+	TR-11 & MP-83 / RL-01 - LOPDP art. 12 & MP-20 / RF-11 Administrar privacidad & MP-84 / CU-18 Configuración de privacidad* & ConfiguracionPrivacidad & MP-85 / CP-11 & Must \\
+	\hline
+	TR-12 & MP-67 / EV-07 - Refugio de animales & MP-21 / RF-12 Verificar identidad de usuarios & MP-86 / CU-19 Verificación de contacto* & VerificacionContacto & MP-87 / CP-12 & Must \\
+	\hline
+	TR-13 & MP-58 / EV-01 - Veterinario & MP-22 / RF-13 Registrar publicaciones & MP-68 / CU-04 Publicar mascota en adopción & Publicacion & PENDIENTE CP-13 & Must \\
+	\hline
+	TR-14 & MP-88 / RL-02 - LOPDP art. 15 & MP-23 / RF-14 Gestionar carnet de vacunación & MP-89 / CU-03 Carnet de vacunación & CarnetVacunacion & MP-90 / CP-14 & Must \\
+	\hline
+	TR-15 & MP-58 / EV-01 - Veterinario & MP-24 / RF-15 Consultar historial de procesos & MP-91 / CU-07 Consultar historial de procesos & --- (módulo de diseño pendiente) & PENDIENTE CP-15 & Could \\
+	\hline
+	TR-16 & MP-58 / EV-01 - Veterinario* & MP-25 / RF-16 Antecedentes genéticos y parentesco & MP-59 / CU-02 Historial médico y antecedentes & AntecedenteGenetico & MP-92 / CP-16 & Must \\
+	\hline
+	TR-17 & MP-58 / EV-01 - Veterinario & MP-26 / RF-17 Validar imágenes & MP-56 / CU-01 Registrar mascota & Validación de imágenes (transversal) & MP-93 / CP-17 & Should \\
+	\hline
+	TR-18 & MP-94 / EV-11 - Propietaria & MP-27 / RF-18 Flujo de adopción por etapas & MP-68 / CU-04 Publicar mascota en adopción & SolicitudAdopcion / flujo por etapas & MP-95 / CP-18 & Must \\
+	\hline
+	TR-19 & MP-94 / EV-11 - Propietaria* & MP-28 / RF-19 Validar certificados veterinarios & MP-78 / CU-09 Validar información médica* & ValidacionVeterinaria & MP-96 / CP-19 & Must \\
+	\hline
+	TR-20 & MP-97 / EV-13 - Propietario & MP-29 / RF-20 Coordinar encuentros de socialización & MP-98 / CU-20 Coordinar encuentro & --- (clase/módulo pendiente) & MP-99 / CP-20 & Could \\
+	\hline
+	TR-21 & MP-100 / EV-16 - Microchip & MP-30 / RF-21 Registrar identificador de microchip & MP-56 / CU-01 Registrar mascota & PerfilMascota / Microchip & MP-101 / CP-21 & Should \\
+	\hline
+	TR-22 & MP-102 / EV-10 - Propietario & MP-31 / RF-22 Seguimiento post-adopción & MP-91 / CU-07 Consultar historial de procesos & --- (clase/módulo pendiente) & MP-103 / CP-22 & Must \\
+	\hline
+	TR-23 & MP-104 / EV-09 - Propietario & MP-32 / RF-23 Emitir alertas de riesgo & MP-70 / CU-13 Evaluar compatibilidad & MotorAlertas & MP-105 / CP-23 & Must \\
+	\hline
+	TR-24 & MP-100 / EV-16 - Evidencia vinculada & MP-33 / RF-24 Trazabilidad de vacuna & MP-89 / CU-03 Carnet de vacunación & CarnetVacunacion & MP-106 / CP-24 & Should \\
+	\hline
+	TR-25 & MP-100 / EV-16 - Evidencia vinculada & MP-34 / RF-25 Aviso de mascota extraviada & MP-107 / CU-14 Publicar aviso de extravío & AvisoExtravio & MP-108 / CP-25 & Could \\
+	\hline
+	TR-26 & MP-109 / RFC-01 - CCB & MP-35 / RF-26 Contactar al publicador & MP-110 / CU-16 Contacto mediado & ContactoMediado, Mensajeria & MP-111 / CP-26 & Must \\
+	\hline
+	TR-27 & MP-112 / RFC-03 - CCB & MP-36 / RF-27 Revocar consentimiento & MP-113 / CU-15 Revocar consentimiento & Consentimiento, Publicacion & MP-114 / CP-27 & Must \\
+	\hline
+\end{longtable}
+
+\subsection{Revisión de requisitos huérfanos}
+
+La revisión final muestra que algunos requisitos dejaron de estar completamente huérfanos después de incorporar nuevos casos de uso o pruebas en Jira; sin embargo, todavía existen relaciones pendientes que deben reportarse explícitamente. En particular, RF-07, RF-13 y RF-15 no tienen caso de prueba creado en la exportación actual, mientras que RF-20 y RF-22 todavía carecen de una clase o módulo de diseño claramente identificado. RF-24 ya cuenta con CU-03 y CP-24, por lo que su ausencia de prueba quedó resuelta.
+
+\begin{table}[h]
+	\centering
+	\small
+	\begin{tabular}{|c|p{4.2cm}|p{6.5cm}|}
+		\hline
+		\textbf{Elemento} & \textbf{Estado actual} & \textbf{Acción / tratamiento} \\
+		\hline
+		RF-07 & Falta CP-07 & Crear y vincular CP-07 antes de la exportación final. \\
+		\hline
+		RF-13 & Falta CP-13 & Crear y vincular CP-13 antes de la exportación final. \\
+		\hline
+		RF-15 & Falta CP-15 y módulo de diseño & Crear CP-15 y mantener explícita la omisión de diseño si no se resuelve. \\
+		\hline
+		RF-20 & Clase/módulo de diseño no definido & CU-20 y CP-20 ya existen; queda pendiente completar el diseño en el ERS v1.1. \\
+		\hline
+		RF-22 & Clase/módulo de diseño no definido & CU-07 y CP-22 ya existen; queda pendiente completar el diseño en el ERS v1.1. \\
+		\hline
+		RF-24 & Resuelto & Dispone de CU-03, CarnetVacunacion y CP-24. \\
+		\hline
+	\end{tabular}
+	\caption{Revisión actualizada de requisitos con trazabilidad incompleta.}
+	\label{tab:huerfanos}
+\end{table}
+
+Antes de cerrar la entrega debe efectuarse una última comparación entre Jira, el ERS v1.1, la matriz de trazabilidad y el archivo \texttt{backlog\_export.csv}. La versión 1.1, los identificadores de casos de uso, las prioridades y los enlaces deben coincidir en todos los artefactos antes de crear el tag \texttt{baseline-v1.1}.
 
 \section{Línea base con Git}
 \subsection{Repositorio y estructura de carpetas}
