@@ -45,6 +45,8 @@
 % IMÁGENES
 % ============================================================
 \usepackage{graphicx}
+\usepackage{float}
+\usepackage{placeins}
 
 % ============================================================
 % TABLAS
@@ -1690,13 +1692,6 @@ D-22).
 
 \newpage
 
-% Requiere en el preámbulo del documento maestro:
-% \usepackage[spanish]{babel}
-% \usepackage{longtable}
-% \usepackage{booktabs}
-% \usepackage{array}
-% \usepackage{geometry} % opcional, para ajustar márgenes con tablas anchas
-
 \section{Trazabilidad en herramienta CASE}
 
 \subsection{Herramienta seleccionada y justificación}
@@ -1789,9 +1784,80 @@ Las clases y módulos no se registraron como issues independientes en Jira; por 
 
 Durante la configuración final se incorporaron artefactos que no estaban representados en la matriz inicial, entre ellos CP-17, CP-18, CU-20/CP-20, CP-21, CP-22 y CP-24. Estos cambios deben reflejarse también en el ERS v1.1 y en la matriz final antes de establecer la línea base.
 
+% Requiere en el preámbulo del documento maestro:
+% \usepackage{graphicx}
+% \usepackage{float}      %% para el especificador [H]
+% \usepackage{placeins}   %% para \FloatBarrier
+% Las imágenes se referencian desde la carpeta Figuras/
+
 \subsection{Evidencias del tablero}
 
-% Pendiente: insertar capturas y leyendas de figuras (Epics, detalle de Historia, panel de estadísticas).
+La configuración se evidencia mediante capturas propias del proyecto MUNDIPETS, con el nombre del proyecto y la cuenta del integrante visibles. En conjunto, las Figuras~\ref{fig:e1}--\ref{fig:e5} muestran los cinco Epics del tablero; las Figuras~\ref{fig:rf16}--\ref{fig:rf27} muestran el detalle de tres Historias con campos personalizados y los tres tipos de enlace; y la Figura~\ref{fig:estadisticas} presenta el panel de estadísticas del proyecto.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{Figuras/jira_tablero_E1.png}
+	\caption{Evidencia E-1 --- Epic E1: Gestión de mascotas y perfiles.}
+	\label{fig:e1}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{Figuras/jira_tablero_E2.png}
+	\caption{Evidencia E-1 --- Epic E2: Procesos de adopción.}
+	\label{fig:e2}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{Figuras/jira_tablero_E3.png}
+	\caption{Evidencia E-1 --- Epic E3: Cruza responsable y salud animal.}
+	\label{fig:e3}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{Figuras/jira_tablero_E4.png}
+	\caption{Evidencia E-1 --- Epic E4: Privacidad, consentimiento y cumplimiento legal.}
+	\label{fig:e4}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{Figuras/jira_tablero_E5.png}
+	\caption{Evidencia E-1 --- Epic E5: Comunicación, avisos y notificaciones.}
+	\label{fig:e5}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{Figuras/jira_issue_RF16.png}
+	\caption{Evidencia E-2 --- Detalle de RF-16 con Prioridad MoSCoW, Fuente, Estado de verificación y enlaces de trazabilidad visibles.}
+	\label{fig:rf16}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{Figuras/jira_issue_RF26.png}
+	\caption{Evidencia E-2 --- Detalle de RF-26 con Prioridad MoSCoW, Fuente del requisito, Estado de verificación y enlaces de trazabilidad visibles.}
+	\label{fig:rf26}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{Figuras/jira_issue_RF27.png}
+	\caption{Evidencia E-2 --- Detalle de RF-27 con Prioridad MoSCoW, Fuente del requisito, Estado de verificación y enlaces de trazabilidad visibles.}
+	\label{fig:rf27}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{Figuras/jira_estadisticas.png}
+	\caption{Evidencia E-3 --- Panel de estadísticas del proyecto MUNDIPETS en Jira: resumen de estados, actividad reciente, prioridad y tipos de trabajo.}
+	\label{fig:estadisticas}
+\end{figure}
+
+\FloatBarrier
 
 \subsection{Matriz de trazabilidad}
 
@@ -1901,6 +1967,7 @@ La revisión final muestra que algunos requisitos dejaron de estar completamente
 
 Antes de cerrar la entrega debe efectuarse una última comparación entre Jira, el ERS v1.1, la matriz de trazabilidad y el archivo \texttt{backlog\_export.csv}. La versión 1.1, los identificadores de casos de uso, las prioridades y los enlaces deben coincidir en todos los artefactos antes de crear el tag \texttt{baseline-v1.1}.
 
+\newpage
 \section{Línea base con Git}
 \subsection{Repositorio y estructura de carpetas}
 \subsection{Historial de commits}
