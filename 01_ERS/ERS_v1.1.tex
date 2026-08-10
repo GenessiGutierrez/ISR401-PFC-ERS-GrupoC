@@ -4154,7 +4154,7 @@ doi=true
 	$\rightarrow$ Caso de Uso $\rightarrow$ Historia de Usuario
 	$\rightarrow$ Criterio de Aceptación $\rightarrow$ Mockup. A continuación se
 	muestra la primera fila a modo de ejemplo del formato empleado;
-	\textbf{la matriz completa, con sus 40 filas (TR-01 a TR-40), se presenta en
+	\textbf{la matriz completa, con sus 50 filas (TR-01 a TR-50), se presenta en
 		el Apéndice~D} y se versiona además como
 	\texttt{04\_Trazabilidad/matriz\_trazabilidad.csv} en el repositorio. La
 	versión en CSV incorpora además las columnas \emph{Tipo} (RF, RNF o RD) e
@@ -6683,141 +6683,141 @@ doi=true
 	\addcontentsline{toc}{section}{Apéndice E --- Repositorio GitHub}
 	\label{ap:repositorio}
 	
-El trabajo del equipo se versiona en el repositorio
-\url{https://github.com/andymendozap03/MundiPets-PFC-IngReq.git}, cuya
-estructura de carpetas se muestra en el Código~\ref{lst:estructura_repo}. La
-organización sigue el orden de las entregas de la asignatura y de la
-Sección~8.1 de la Guía y Rúbrica de la Entrega 3 (2A), y cada carpeta
-numerada corresponde a un artefacto citado en el cuerpo de este documento.
-La estructura mostrada corresponde al árbol real del repositorio al
-momento del corte, obtenido con el comando \texttt{tree /f} sobre la
-carpeta raíz del proyecto.
-
-\begin{lstlisting}[style=csharp,caption={Estructura de carpetas del repositorio MundiPets-PFC-IngReq (árbol real al corte de la Entrega 3, 2A).},label={lst:estructura_repo}]
-	MundiPets-PFC-IngReq/
-	|-- .gitattributes
-	|-- .gitignore
-	|-- CHANGELOG.md
-	|-- checksums.sha256
-	|-- CITATION.cff
-	|-- LICENSE
-	|-- README.md
-	|
-	|-- 01_ERS/
-	|   |-- ERS_SRS_2A_v1.0.pdf        % compilado de la entrega
-	|   |-- ERS_SRS_2A_v1.0.tex        % documento maestro
-	|   |-- referencias.bib            % fuentes primarias
-	|   `-- figuras/                   % diagramas i*, UML y mockups
-	|
-	|-- 02_Evidencias/
-	|   |-- 00_Restringido/            % [R] cifrado, zona restringida
-	|   |   |-- fichas_tecnicas.csv
-	|   |   |-- README_evidencias_restringidas.md
-	|   |   `-- evidencias_restringidas/
-	|   |       `-- evidencias_restringidas.7z.001 ... .067
-	|   |-- Codificacion_Tematica/     % B.8
-	|   |-- Consentimientos/           % B.6, copias enmascaradas [P]
-	|   |-- Cuestionario/
-	|   |   |-- Fotos_Aplicacion/
-	|   |   `-- Respuestas/
-	|   |-- Documentos_Organizacion/
-	|   |-- Fotos_Entorno/             % B.5, observacion OBS-01
-	|   |-- Transcripciones/           % transcripciones anonimizadas
-	|   `-- Validacion_Walkthrough/    % B.7, actas EV-19 a EV-22
-	|
-	|-- 03_Modelado/
-	|   |-- Diagramas_UML/             % Casos de Uso, Componentes,
-	|   |                              % Contexto, Dependencia y Razon
-	|   |                              % Estrategica, Despliegue,
-	|   |                              % Actividades, Clases, Estados,
-	|   |                              % Secuencia (.png/.svg/.vpp)
-	|   `-- Mockups/                   % MU-01 a MU-08
-	|
-	|-- 04_Trazabilidad/
-	|   |-- matriz_trazabilidad.csv
-	|   `-- priorizacion_moscow_kano.csv
-	|
-	|-- 05_MVP/
-	|   |-- README.md                  % instrucciones de despliegue
-	|   `-- video_demo.mp4             % evidencia de funcionamiento
-	|
-	|-- 06_Experimento/
-	|   |-- osf_registration.pdf       % registro previo aceptado en OSF
-	|   |-- protocolo.pdf              % protocolo experimental (Enfoque 2)
-	|   |-- README_osf_registration.md
-	|   |-- instrumentos/              % rubrica y consentimientos de
-	|   |                              % evaluadores expertos
-	|   |-- prompts_llm/
-	|   |-- resultados/
-	|   |   |-- figuras/               % figura_1 a figura_4
-	|   |   `-- tablas/                % tabla_1 a tabla_7 (CSV)
-	|   `-- scripts_analisis/
-	|       `-- datos_entrada/
-	|
-	|-- 07_Publicacion/
-	|   |-- analisis_revistas.md
-	|   |-- manuscrito_borrador.pdf
-	|   |-- dataset_zenodo/
-	|   |   `-- corpus_RF_MundiPets_2A.json
-	|   `-- manuscrito/                % fuente LaTeX del manuscrito
-	|       `-- bst/                   % estilos bibliograficos Springer
-	|
-	`-- 08_Etica/
-	|-- A01_Protocolo_Investigacion.pdf
-	|-- A02_Instrumentos_Recoleccion.pdf
-	|-- A02.1_Guia_entrevista_semi-estructurada.pdf
-	|-- A02.2_Cuestionario_Encuesta.pdf
-	|-- A02.3_Protocolo_Observacion.pdf
-	|-- A02.4_Guion_Sesion_Design_Thinking.pdf
-	|-- A03_Consentimiento_Informado.pdf
-	|-- A04_Plan_Gestion_Datos.pdf
-	|-- A05_Aval_Institucional.pdf
-	|-- A06_Declaracion_Conflicto_Intereses.pdf
-	|-- A07_Compromiso_Confidencialidad.pdf
-	|-- A08_CV_Docente.pdf
-	|-- A09_Nomina_Equipo.pdf
-	|-- A10_Cronograma_Gantt.pdf
-	|-- A11_Analisis_Riesgos.pdf
-	|-- A13_Participantes_Externos.pdf
-	|-- Adenda_Segunda_Ronda.pdf
-	|-- README_Etica.md
-	`-- Categoria_B/
-	|-- CB01_Aval_Organizacion.pdf
-	|-- CB02_Protocolo_Proteccion_Datos_Personales.pdf
-	|-- CB03_Compromiso_De_No_Uso_De_Datos_Reales.pdf
-	|-- CB05_Politica_Manejo_Datos_Menores_De_Edad.pdf
-	`-- CheckList_Categoria_B_MundiPets.pdf
-\end{lstlisting}
-
-\paragraph{Nota sobre el documento A.12.}
-La carpeta \texttt{08\_Etica/} no contiene el documento
-\texttt{A12\_Certificado\_Etica.pdf}. El equipo gestionó la obtención del
-certificado de formación ética en investigación exigido por el Anexo~A.12
-del Paquete Integral de Anexos y Guías, y constató que las opciones
-disponibles (CITI Program, GCP-ICH, CEDIA) requerían un pago para la
-emisión del certificado, inaccesible con los recursos propios del equipo.
-Esta situación fue comunicada de forma expresa al docente responsable, sin
-que este haya proporcionado un certificado propio ni una alternativa
-institucional gratuita. El detalle de esta gestión consta en
-\texttt{08\_Etica/README\_Etica.md}.
-
-\paragraph{Nota sobre la zona restringida.}
-Los archivos de audio y video originales de las entrevistas y sesiones de
-\emph{walkthrough} (Apéndice~B.9) no residen sueltos en
-\texttt{02\_Evidencias/}: se comprimen y cifran con AES-256 en el volumen
-fragmentado \texttt{02\_Evidencias/00\_Restringido/evidencias\_restringidas/},
-cuya contraseña se entrega únicamente al docente responsable por el SGA,
-conforme a la Sección~4.1 de la Guía y Rúbrica de la Entrega 3 (2A).
-
-El archivo \texttt{07\_Publicacion/dataset\_zenodo/corpus\_RF\_MundiPets\_2A.json}
-contiene los 25 requisitos funcionales de la Sección~\ref{sec:rf}
-serializados con los once atributos del esquema de la plantilla
-(identificador, nombre, descripción, actor, origen de evidencia, entradas,
-salidas, precondiciones, postcondiciones, prioridad MoSCoW y criterio de
-verificación). Este archivo es el insumo directo del detector automático de
-ambigüedad descrito en la Sección~\ref{sec:empirico} y se deposita en
-Zenodo bajo licencia CC BY 4.0 con DOI persistente, conforme a los
-principios FAIR \cite{wilkinson2016}.
+	El trabajo del equipo se versiona en el repositorio
+	\url{https://github.com/andymendozap03/MundiPets-PFC-IngReq.git}, cuya
+	estructura de carpetas se muestra en el Código~\ref{lst:estructura_repo}. La
+	organización sigue el orden de las entregas de la asignatura y de la
+	Sección~8.1 de la Guía y Rúbrica de la Entrega 3 (2A), y cada carpeta
+	numerada corresponde a un artefacto citado en el cuerpo de este documento.
+	La estructura mostrada corresponde al árbol real del repositorio al
+	momento del corte, obtenido con el comando \texttt{tree /f} sobre la
+	carpeta raíz del proyecto.
+	
+	\begin{lstlisting}[style=csharp,caption={Estructura de carpetas del repositorio MundiPets-PFC-IngReq (árbol real al corte de la Entrega 3, 2A).},label={lst:estructura_repo}]
+		MundiPets-PFC-IngReq/
+		|-- .gitattributes
+		|-- .gitignore
+		|-- CHANGELOG.md
+		|-- checksums.sha256
+		|-- CITATION.cff
+		|-- LICENSE
+		|-- README.md
+		|
+		|-- 01_ERS/
+		|   |-- ERS_SRS_2A_v1.0.pdf        % compilado de la entrega
+		|   |-- ERS_SRS_2A_v1.0.tex        % documento maestro
+		|   |-- referencias.bib            % fuentes primarias
+		|   `-- figuras/                   % diagramas i*, UML y mockups
+		|
+		|-- 02_Evidencias/
+		|   |-- 00_Restringido/            % [R] cifrado, zona restringida
+		|   |   |-- fichas_tecnicas.csv
+		|   |   |-- README_evidencias_restringidas.md
+		|   |   `-- evidencias_restringidas/
+		|   |       `-- evidencias_restringidas.7z.001 ... .067
+		|   |-- Codificacion_Tematica/     % B.8
+		|   |-- Consentimientos/           % B.6, copias enmascaradas [P]
+		|   |-- Cuestionario/
+		|   |   |-- Fotos_Aplicacion/
+		|   |   `-- Respuestas/
+		|   |-- Documentos_Organizacion/
+		|   |-- Fotos_Entorno/             % B.5, observacion OBS-01
+		|   |-- Transcripciones/           % transcripciones anonimizadas
+		|   `-- Validacion_Walkthrough/    % B.7, actas EV-19 a EV-22
+		|
+		|-- 03_Modelado/
+		|   |-- Diagramas_UML/             % Casos de Uso, Componentes,
+		|   |                              % Contexto, Dependencia y Razon
+		|   |                              % Estrategica, Despliegue,
+		|   |                              % Actividades, Clases, Estados,
+		|   |                              % Secuencia (.png/.svg/.vpp)
+		|   `-- Mockups/                   % MU-01 a MU-08
+		|
+		|-- 04_Trazabilidad/
+		|   |-- matriz_trazabilidad.csv
+		|   `-- priorizacion_moscow_kano.csv
+		|
+		|-- 05_MVP/
+		|   |-- README.md                  % instrucciones de despliegue
+		|   `-- video_demo.mp4             % evidencia de funcionamiento
+		|
+		|-- 06_Experimento/
+		|   |-- osf_registration.pdf       % registro previo aceptado en OSF
+		|   |-- protocolo.pdf              % protocolo experimental (Enfoque 2)
+		|   |-- README_osf_registration.md
+		|   |-- instrumentos/              % rubrica y consentimientos de
+		|   |                              % evaluadores expertos
+		|   |-- prompts_llm/
+		|   |-- resultados/
+		|   |   |-- figuras/               % figura_1 a figura_4
+		|   |   `-- tablas/                % tabla_1 a tabla_7 (CSV)
+		|   `-- scripts_analisis/
+		|       `-- datos_entrada/
+		|
+		|-- 07_Publicacion/
+		|   |-- analisis_revistas.md
+		|   |-- manuscrito_borrador.pdf
+		|   |-- dataset_zenodo/
+		|   |   `-- corpus_RF_MundiPets_2A.json
+		|   `-- manuscrito/                % fuente LaTeX del manuscrito
+		|       `-- bst/                   % estilos bibliograficos Springer
+		|
+		`-- 08_Etica/
+		|-- A01_Protocolo_Investigacion.pdf
+		|-- A02_Instrumentos_Recoleccion.pdf
+		|-- A02.1_Guia_entrevista_semi-estructurada.pdf
+		|-- A02.2_Cuestionario_Encuesta.pdf
+		|-- A02.3_Protocolo_Observacion.pdf
+		|-- A02.4_Guion_Sesion_Design_Thinking.pdf
+		|-- A03_Consentimiento_Informado.pdf
+		|-- A04_Plan_Gestion_Datos.pdf
+		|-- A05_Aval_Institucional.pdf
+		|-- A06_Declaracion_Conflicto_Intereses.pdf
+		|-- A07_Compromiso_Confidencialidad.pdf
+		|-- A08_CV_Docente.pdf
+		|-- A09_Nomina_Equipo.pdf
+		|-- A10_Cronograma_Gantt.pdf
+		|-- A11_Analisis_Riesgos.pdf
+		|-- A13_Participantes_Externos.pdf
+		|-- Adenda_Segunda_Ronda.pdf
+		|-- README_Etica.md
+		`-- Categoria_B/
+		|-- CB01_Aval_Organizacion.pdf
+		|-- CB02_Protocolo_Proteccion_Datos_Personales.pdf
+		|-- CB03_Compromiso_De_No_Uso_De_Datos_Reales.pdf
+		|-- CB05_Politica_Manejo_Datos_Menores_De_Edad.pdf
+		`-- CheckList_Categoria_B_MundiPets.pdf
+	\end{lstlisting}
+	
+	\paragraph{Nota sobre el documento A.12.}
+	La carpeta \texttt{08\_Etica/} no contiene el documento
+	\texttt{A12\_Certificado\_Etica.pdf}. El equipo gestionó la obtención del
+	certificado de formación ética en investigación exigido por el Anexo~A.12
+	del Paquete Integral de Anexos y Guías, y constató que las opciones
+	disponibles (CITI Program, GCP-ICH, CEDIA) requerían un pago para la
+	emisión del certificado, inaccesible con los recursos propios del equipo.
+	Esta situación fue comunicada de forma expresa al docente responsable, sin
+	que este haya proporcionado un certificado propio ni una alternativa
+	institucional gratuita. El detalle de esta gestión consta en
+	\texttt{08\_Etica/README\_Etica.md}.
+	
+	\paragraph{Nota sobre la zona restringida.}
+	Los archivos de audio y video originales de las entrevistas y sesiones de
+	\emph{walkthrough} (Apéndice~B.9) no residen sueltos en
+	\texttt{02\_Evidencias/}: se comprimen y cifran con AES-256 en el volumen
+	fragmentado \texttt{02\_Evidencias/00\_Restringido/evidencias\_restringidas/},
+	cuya contraseña se entrega únicamente al docente responsable por el SGA,
+	conforme a la Sección~4.1 de la Guía y Rúbrica de la Entrega 3 (2A).
+	
+	El archivo \texttt{07\_Publicacion/dataset\_zenodo/corpus\_RF\_MundiPets\_2A.json}
+	contiene los 25 requisitos funcionales de la Sección~\ref{sec:rf}
+	serializados con los once atributos del esquema de la plantilla
+	(identificador, nombre, descripción, actor, origen de evidencia, entradas,
+	salidas, precondiciones, postcondiciones, prioridad MoSCoW y criterio de
+	verificación). Este archivo es el insumo directo del detector automático de
+	ambigüedad descrito en la Sección~\ref{sec:empirico} y se deposita en
+	Zenodo bajo licencia CC BY 4.0 con DOI persistente, conforme a los
+	principios FAIR \cite{wilkinson2016}.
 	
 	\subsection*{Historial de commits}
 	
