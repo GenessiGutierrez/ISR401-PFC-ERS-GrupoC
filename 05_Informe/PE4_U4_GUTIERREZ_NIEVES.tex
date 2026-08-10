@@ -1687,6 +1687,219 @@ D-22).
 	\hline
 \end{longtable}
 
+\subsection{Acta del CCB}
+
+El comité se constituyó con los cuatro roles que la práctica exige
+—presidenta, representante del cliente, analista y desarrollador—
+distribuidos entre las dos integrantes del equipo, a razón de dos roles
+por persona. Al igual que en la inspección Fagan, esta acumulación se
+declara como limitación y no como configuración canónica: con dos
+personas votando por partida doble, la deliberación no puede producir una
+mayoría independiente, por lo que se adoptó la regla de que cada rol debe
+emitir su argumento por escrito y desde la perspectiva de su rol antes de
+votar, y que un voto sin argumento registrado se considera nulo. El acta
+recoge los doce argumentos emitidos (cuatro por cada uno de RFC-01, RFC-02
+y RFC-03, dos por integrante).
+
+\begin{table}[h!]
+	\centering
+	\caption{Contenido del acta de la reunión del CCB.}
+	\label{tab:acta-ccb}
+	\begin{tabular}{
+			|>{\raggedright\arraybackslash}p{4cm}
+			|>{\raggedright\arraybackslash}p{9.5cm}|
+		}
+		\hline
+		\textbf{Fecha, hora y lugar} & 09/08/2026, 14:00 -- 15:10 ---
+		Videoconferencia \\
+		\hline
+		\textbf{Duración} & 70 minutos \\
+		\hline
+		\textbf{Presidenta y Analista de requisitos} & Gutiérrez Ortega
+		Génesis Adriana \\
+		\hline
+		\textbf{Representante del cliente y Desarrollador} & Nieves
+		Sánchez Jimmy Samuel \\
+		\hline
+		\textbf{Composición y quórum} & 4 roles ejercidos por 2 personas.
+		Quórum verificado: los cuatro roles presentes y con argumento
+		registrado. \\
+		\hline
+		\textbf{Regla de deliberación} & Cada rol argumenta por escrito
+		desde su perspectiva antes de votar. La presidenta no puede
+		invocar su rol de analista para reforzar una decisión ya tomada
+		como presidenta: los argumentos se redactaron y se registraron
+		antes de la votación de cada RFC. \\
+		\hline
+		\textbf{Agenda} & 1) Verificación del quórum y de la regla de
+		deliberación. 2) Presentación del informe de inspección (27
+		defectos, 5 críticos). 3) Deliberación y votación de RFC-01. 4)
+		Deliberación y votación de RFC-02. 5) Deliberación y votación de
+		RFC-03. 6) Fijación de la versión resultante y de la línea base.
+		7) Puntos diferidos. \\
+		\hline
+		\textbf{Limitación declarada} & Con dos personas, ningún RFC
+		puede ser rechazado por mayoría real de perspectivas
+		independientes. Se deja constancia de que las tres decisiones
+		fueron unánimes y de que, en un comité con cuatro personas
+		distintas, la condición impuesta a RFC-01 podría haber derivado
+		en un aplazamiento en lugar de una aprobación condicionada. \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsubsection{Deliberación y votación por RFC}
+
+\begin{longtable}{
+		|c
+		|>{\raggedright\arraybackslash}p{2.8cm}
+		|>{\raggedright\arraybackslash}p{7cm}
+		|>{\raggedright\arraybackslash}p{2.3cm}|
+	}
+	\caption{Deliberación del CCB: argumento por rol y voto emitido.}
+	\label{tab:deliberacion-ccb} \\
+	\hline
+	\textbf{RFC} & \textbf{Rol (integrante)} & \textbf{Argumento expuesto
+		desde la perspectiva del rol} & \textbf{Voto} \\
+	\hline
+	\endfirsthead
+	\multicolumn{4}{l}{(continuación de la Tabla 2)} \\
+	\hline
+	\textbf{RFC} & \textbf{Rol (integrante)} & \textbf{Argumento expuesto
+		desde la perspectiva del rol} & \textbf{Voto} \\
+	\hline
+	\endhead
+	\hline
+	\endfoot
+	RFC-01 & Presidenta (Gutiérrez) & El conflicto entre RF-25 y RNF-16
+	es un defecto crítico y no puede quedar abierto antes de sellar la
+	línea base. El canal mediado es la única solución identificada que
+	no obliga a sacrificar ninguno de los dos requisitos. & A favor \\
+	\hline
+	& Analista de requisitos (Gutiérrez) & El análisis de impacto
+	muestra 3 filas de la matriz afectadas directamente y una
+	dependencia sobre RF-07, cuya prioridad es Could. Sin repriorizar
+	RF-07, RF-26 queda especificado pero no implementable. & A favor con
+	condición \\
+	\hline
+	& Rep. del cliente (Nieves) & El refugio necesita que un aviso de
+	extravío funcione en horas, no en días; el formulario mediado añade
+	fricción a la respuesta. Acepta el cambio solo si la respuesta
+	genera notificación inmediata al publicador. & A favor con
+	condición \\
+	\hline
+	& Desarrollador (Nieves) & 9 horas-persona son asumibles, pero
+	reutilizar el módulo de mensajería exige que ese módulo exista.
+	Confirma técnicamente la dependencia señalada por el analista. & A
+	favor con condición \\
+	\hline
+	RFC-02 & Presidenta (Gutiérrez) & Sin un veredicto declarado en
+	RF-06, los requisitos RNF-06 y RNF-13 —ambos Must— son
+	inverificables. El cambio no amplía el alcance, lo hace auditable. &
+	A favor \\
+	\hline
+	& Analista de requisitos (Gutiérrez) & El protocolo de 40 pares
+	evaluados por 3 veterinarios es el mínimo para que el umbral del
+	85\,\% signifique algo medible. Advierte que solo hay 2 veterinarios
+	colaboradores registrados en el catálogo de evidencias. & A favor \\
+	\hline
+	& Rep. del cliente (Nieves) & Los tres niveles son más útiles para
+	el usuario que un comparativo neutro, siempre que la plataforma no
+	se presente como autoridad veterinaria. Pide que el nivel «no
+	recomendado» incluya siempre la razón. & A favor \\
+	\hline
+	& Desarrollador (Nieves) & El tipo enumerado y los tres flujos son
+	triviales de implementar; el coste real está en el protocolo de
+	medición, no en el código. Sin la salida declarada, no había forma
+	de saber qué construir. & A favor \\
+	\hline
+	RFC-03 & Presidenta (Gutiérrez) & Es una obligación legal que el
+	propio ERS declara y que ningún requisito implementa. No hay margen
+	de discrecionalidad: rechazarla dejaría el sistema en
+	incumplimiento. & A favor \\
+	\hline
+	& Analista de requisitos (Gutiérrez) & La cascada de la revocación
+	alcanza a Publicacion y a los procesos de adopción en curso. Propone
+	un estado intermedio reversible de 30 días para atender la objeción
+	del representante del cliente. & A favor \\
+	\hline
+	& Rep. del cliente (Nieves) & Pregunta qué ocurre con las
+	adopciones en curso cuando un usuario revoca. Solicita que la
+	revocación no cancele procesos ya iniciados sin aviso previo a la
+	contraparte. & A favor con observación \\
+	\hline
+	& Desarrollador (Nieves) & 16 horas-persona es el mayor de los tres
+	cambios y toca varias entidades. Pide implementarlo primero, antes
+	de que crezca el volumen de datos de prueba y el borrado en cascada
+	se vuelva costoso. & A favor \\
+	\hline
+\end{longtable}
+
+\subsubsection{Decisiones, acciones y responsables}
+
+\begin{longtable}{
+		|c
+		|>{\raggedright\arraybackslash}p{3cm}
+		|>{\raggedright\arraybackslash}p{5.3cm}
+		|>{\raggedright\arraybackslash}p{2.3cm}
+		|>{\raggedright\arraybackslash}p{1.5cm}|
+	}
+	\caption{Decisiones del CCB con acciones, responsables y plazos.}
+	\label{tab:decisiones-ccb} \\
+	\hline
+	\textbf{RFC} & \textbf{Decisión} & \textbf{Justificación y acciones
+		acordadas} & \textbf{Responsable} & \textbf{Plazo} \\
+	\hline
+	\endfirsthead
+	\multicolumn{5}{l}{(continuación de la Tabla 3)} \\
+	\hline
+	\textbf{RFC} & \textbf{Decisión} & \textbf{Justificación y acciones
+		acordadas} & \textbf{Responsable} & \textbf{Plazo} \\
+	\hline
+	\endhead
+	\hline
+	\endfoot
+	RFC-01 & Aprobado con condiciones (4 votos a favor, 3
+	condicionados) & Se aprueba la creación de RF-26 y la excepción
+	acotada en RNF-16. Condición 1: RF-07 se reprioriza de Could a
+	Should en la misma versión. Condición 2: el formulario mediado debe
+	generar notificación inmediata al publicador. & Nieves (RF-26),
+	Gutiérrez (CU-14/CU-16) & Semana 14 \\
+	\hline
+	RFC-02 & Aprobado (4 votos a favor) & Se aprueban el veredicto de
+	tres niveles y el protocolo de medición. Acción adicional: gestionar
+	la participación de un tercer veterinario antes de la fase de
+	pruebas. & Nieves (RF-06), Gutiérrez (3er veterinario) & Semana 14 /
+	Unidad~V \\
+	\hline
+	RFC-03 & Aprobado (4 votos a favor, con 1 observación) & Obligación
+	normativa no negociable. Se incorpora la observación del
+	representante del cliente: la revocación pasa por un estado
+	reversible de 30 días y notifica a la contraparte. & Gutiérrez
+	(RF-27 y diagrama de estados) & Semana 14 \\
+	\hline
+	D-27 & Diferido & La reclasificación de requisitos a Won't have se
+	traslada a la primera sesión de la Unidad~V, por requerir revisión
+	completa del backlog. & Nieves & Unidad~V \\
+	\hline
+	D-12 & Diferido & Requiere consulta previa al refugio sobre la
+	necesidad de la fotografía del solicitante. & Nieves & Unidad~V \\
+	\hline
+\end{longtable}
+
+\subsubsection{Versión resultante y cierre}
+
+El comité acordó que, partiendo de la versión 1.0 del ERS de MundiPets, la
+implementación de las tres RFC aprobadas, junto con la corrección de los
+18 defectos críticos y mayores, da como resultado la versión 1.1 del ERS.
+Esta versión constituye la nueva línea base del proyecto y queda
+identificada mediante el tag anotado \texttt{baseline-v1.1}. El comité
+verificó que la versión 1.1 figure de manera coherente en la portada del
+ERS, en el historial de revisiones, en el \texttt{CHANGELOG.md} y en el
+tag de Git, con lo cual se da por cerrado el defecto D-04.
+
+El acta firmada por ambas integrantes constituye el documento
+\texttt{Acta\_CCB.pdf}, versionado en \texttt{03\_CCB/}.
 
 \newpage
 
